@@ -1240,5 +1240,44 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+
+<!-- Firebase Integration for Live Animal Data -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getFirestore, collection, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+/* ════════════════════════════════════
+   🔥 PASTE YOUR FIREBASE CONFIG HERE
+════════════════════════════════════ */
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+/* ════════════════════════════════════ */
+
+// Try Firebase first, fall back to local data
+try {
+  if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    // Live listener — updates instantly when admin makes changes!
+    onSnapshot(collection(db, 'animals'), (snapshot) => {
+      const liveAnimals = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      if (liveAnimals.length > 0) {
+        window._liveAnimals = liveAnimals;
+        if (typeof renderAnimals === 'function') renderAnimals(liveAnimals);
+        console.log('🔥 Live data loaded:', liveAnimals.length, 'animals');
+      }
+    });
+  }
+} catch(e) {
+  console.log('Using default animal data');
+}
+</script>
+
 </body>
 </html>

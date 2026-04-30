@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Admin Panel – Seasonal Premium Sheep Stall</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1a6b3c;--green2:#2d9e5f;--green3:#0d3d22;
+  --gold:#c9943a;--gold2:#e8b45a;
+  --cream:#fdf8ef;--white:#fff;
+  --red:#e74c3c;--red2:#fadbd8;
+  --txt:#1a1a1a;--txt2:#555;--txt3:#999;
+  --border:rgba(0,0,0,.1);
+  --radius:14px;--shadow:0 4px 20px rgba(0,0,0,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--txt);min-height:100vh;}
+
+/* ── LOGIN ── */
+.login-wrap{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,var(--green3),var(--green));
+  padding:1rem;
+}
+.login-card{
+  background:white;border-radius:20px;padding:2.5rem 2rem;
+  width:100%;max-width:380px;text-align:center;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.login-icon{font-size:3rem;margin-bottom:.5rem;}
+.login-card h2{font-family:'Amiri',serif;font-size:1.6rem;color:var(--green3);margin-bottom:.3rem;}
+.login-card p{font-size:.82rem;color:var(--txt3);margin-bottom:1.8rem;}
+.login-input{
+  width:100%;border:1.5px solid var(--border);border-radius:10px;
+  padding:12px 14px;font-family:'Nunito',sans-serif;font-size:.9rem;
+  margin-bottom:.8rem;outline:none;transition:border-color .15s;
+  background:var(--cream);
+}
+.login-input:focus{border-color:var(--green);}
+.login-btn{
+  width:100%;background:var(--green);color:white;border:none;
+  padding:13px;border-radius:10px;font-family:'Nunito',sans-serif;
+  font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s;
+}
+.login-btn:hover{background:var(--green2);}
+.login-err{color:var(--red);font-size:.8rem;margin-top:.5rem;display:none;}
+
+/* ── DASHBOARD ── */
+.dashboard{display:none;}
+.topbar{
+  background:var(--green3);color:white;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 20px;position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 12px rgba(0,0,0,.2);
+}
+.topbar-brand{font-family:'Amiri',serif;font-size:1.1rem;color:var(--gold2);display:flex;align-items:center;gap:8px;}
+.topbar-right{display:flex;align-items:center;gap:10px;}
+.logout-btn{
+  background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);
+  padding:6px 14px;border-radius:20px;font-family:'Nunito',sans-serif;
+  font-size:.78rem;font-weight:700;cursor:pointer;
+}
+.admin-badge{background:var(--gold);color:white;font-size:.7rem;font-weight:700;padding:3px 10px;border-radius:20px;}
+
+/* ── TABS ── */
+.tabs{
+  display:flex;background:white;border-bottom:1px solid var(--border);
+  overflow-x:auto;scrollbar-width:none;
+}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{
+  flex-shrink:0;padding:14px 20px;font-size:.85rem;font-weight:700;
+  color:var(--txt3);cursor:pointer;border-bottom:3px solid transparent;
+  transition:all .15s;white-space:nowrap;
+}
+.tab.active{color:var(--green);border-bottom-color:var(--green);}
+
+/* ── CONTENT ── */
+.content{max-width:900px;margin:0 auto;padding:1.5rem 1rem;}
+
+/* ── STATS BAR ── */
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.8rem;margin-bottom:1.5rem;}
+.stat-card{
+  background:white;border-radius:var(--radius);padding:1rem;
+  text-align:center;border:1px solid var(--border);box-shadow:var(--shadow);
+}
+.stat-val{font-size:1.8rem;font-weight:800;color:var(--green3);}
+.stat-lbl{font-size:.72rem;color:var(--txt3);font-weight:600;text-transform:uppercase;letter-spacing:.05em;}
+
+/* ── SECTION CARD ── */
+.card{
+  background:white;border-radius:var(--radius);padding:1.4rem;
+  border:1px solid var(--border);box-shadow:var(--shadow);margin-bottom:1.2rem;
+}
+.card-header{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1.2rem;flex-wrap:wrap;gap:.5rem;
+}
+.card-title{font-family:'Amiri',serif;font-size:1.2rem;color:var(--green3);}
+.btn-add{
+  background:var(--green);color:white;border:none;
+  padding:8px 18px;border-radius:24px;font-family:'Nunito',sans-serif;
+  font-size:.8rem;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;gap:6px;transition:background .15s;
+}
+.btn-add:hover{background:var(--green2);}
+
+/* ── ANIMAL LIST ── */
+.animal-list{display:flex;flex-direction:column;gap:.8rem;}
+.animal-row{
+  background:var(--cream);border-radius:10px;padding:.9rem 1rem;
+  border:1px solid var(--border);
+  display:grid;grid-template-columns:60px 1fr auto;gap:.8rem;align-items:center;
+}
+.animal-thumb{
+  width:60px;height:60px;border-radius:8px;object-fit:cover;
+  background:#e8e8e8;display:flex;align-items:center;justify-content:center;
+  font-size:1.8rem;overflow:hidden;flex-shrink:0;
+}
+.animal-thumb img{width:100%;height:100%;object-fit:cover;}
+.animal-info h4{font-size:.9rem;font-weight:700;color:var(--green3);margin-bottom:2px;}
+.animal-info p{font-size:.76rem;color:var(--txt2);}
+.animal-chips{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:4px;}
+.chip{
+  background:white;border:1px solid var(--border);border-radius:20px;
+  padding:2px 8px;font-size:.68rem;font-weight:700;color:var(--green);
+}
+.chip-sold{background:#fde8e8;border-color:#f5c6c6;color:var(--red);}
+.chip-avail{background:#e8f5ee;border-color:#b8dfc9;color:var(--green);}
+.row-btns{display:flex;gap:.4rem;flex-direction:column;}
+.btn-edit{
+  background:var(--green);color:white;border:none;
+  padding:6px 12px;border-radius:8px;font-family:'Nunito',sans-serif;
+  font-size:.72rem;font-weight:700;cursor:pointer;white-space:nowrap;
+}
+.btn-del{
+  background:var(--red2);color:var(--red);border:1px solid #f5c6c6;
+  padding:6px 12px;border-radius:8px;font-family:'Nunito',sans-serif;
+  font-size:.72rem;font-weight:700;cursor:pointer;white-space:nowrap;
+}
+
+/* ── MODAL ── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);
+  z-index:500;align-items:center;justify-content:center;padding:1rem;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:white;border-radius:20px;padding:1.8rem;
+  width:100%;max-width:480px;max-height:90vh;overflow-y:auto;
+}
+.modal h3{font-family:'Amiri',serif;font-size:1.3rem;color:var(--green3);margin-bottom:1.2rem;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+.form-full{grid-column:1/-1;}
+.form-group{display:flex;flex-direction:column;gap:4px;}
+.form-label{font-size:.74rem;font-weight:700;color:var(--txt2);text-transform:uppercase;letter-spacing:.05em;}
+.form-input,.form-select,.form-textarea{
+  border:1.5px solid var(--border);border-radius:8px;
+  padding:9px 11px;font-family:'Nunito',sans-serif;font-size:.85rem;
+  outline:none;transition:border-color .15s;background:var(--cream);
+  width:100%;
+}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--green);}
+.form-textarea{resize:vertical;min-height:70px;}
+
+/* ── PHOTO UPLOAD ── */
+.photo-upload-area{
+  border:2px dashed rgba(26,107,60,.3);border-radius:10px;
+  padding:1.2rem;text-align:center;cursor:pointer;transition:border-color .15s;
+  background:var(--cream);
+}
+.photo-upload-area:hover{border-color:var(--green);}
+.photo-upload-area input{display:none;}
+.photo-preview{
+  display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.6rem;
+}
+.photo-preview-item{
+  width:70px;height:70px;border-radius:8px;overflow:hidden;
+  border:2px solid var(--green);position:relative;
+}
+.photo-preview-item img{width:100%;height:100%;object-fit:cover;}
+.photo-preview-item .remove-photo{
+  position:absolute;top:2px;right:2px;background:var(--red);color:white;
+  border:none;border-radius:50%;width:18px;height:18px;font-size:.6rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.upload-progress{
+  height:4px;background:#e8e8e8;border-radius:2px;margin-top:.5rem;display:none;
+}
+.upload-progress-bar{height:100%;background:var(--green);border-radius:2px;transition:width .3s;}
+
+/* ── MODAL ACTIONS ── */
+.modal-actions{display:flex;gap:.7rem;margin-top:1.2rem;justify-content:flex-end;}
+.btn-save{
+  background:var(--green);color:white;border:none;
+  padding:10px 24px;border-radius:24px;font-family:'Nunito',sans-serif;
+  font-size:.88rem;font-weight:700;cursor:pointer;transition:background .15s;
+}
+.btn-save:hover{background:var(--green2);}
+.btn-cancel{
+  background:var(--cream);color:var(--txt2);border:1.5px solid var(--border);
+  padding:10px 20px;border-radius:24px;font-family:'Nunito',sans-serif;
+  font-size:.88rem;font-weight:600;cursor:pointer;
+}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;top:70px;left:50%;transform:translateX(-50%);
+  background:var(--green3);color:white;padding:10px 20px;border-radius:24px;
+  font-size:.82rem;font-weight:700;z-index:9999;
+  box-shadow:0 4px 16px rgba(0,0,0,.2);display:none;text-align:center;
+  max-width:90vw;
+}
+.toast.show{display:block;}
+.toast.error{background:var(--red);}
+
+/* ── LOADING ── */
+.loading{text-align:center;padding:2rem;color:var(--txt3);}
+.spinner{
+  width:32px;height:32px;border:3px solid var(--border);
+  border-top-color:var(--green);border-radius:50%;
+  animation:spin .7s linear infinite;margin:0 auto .8rem;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── SETUP GUIDE ── */
+.setup-steps{counter-reset:step;}
+.setup-step{
+  display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem;
+  counter-increment:step;
+}
+.step-num{
+  width:32px;height:32px;border-radius:50%;background:var(--green);color:white;
+  display:flex;align-items:center;justify-content:center;font-weight:800;
+  font-size:.9rem;flex-shrink:0;margin-top:2px;
+}
+.step-content h4{font-size:.88rem;font-weight:700;color:var(--green3);margin-bottom:3px;}
+.step-content p{font-size:.78rem;color:var(--txt2);line-height:1.5;}
+.step-content code{
+  background:var(--cream);border:1px solid var(--border);border-radius:4px;
+  padding:2px 6px;font-size:.75rem;color:var(--green3);font-family:monospace;
+  word-break:break-all;
+}
+.config-box{
+  background:#1e1e1e;color:#d4d4d4;border-radius:10px;padding:1rem;
+  font-family:monospace;font-size:.75rem;line-height:1.7;margin:.5rem 0;
+  overflow-x:auto;
+}
+.config-box .key{color:#9cdcfe;}
+.config-box .val{color:#ce9178;}
+.config-box .comment{color:#6a9955;}
+.copy-config{
+  background:var(--green);color:white;border:none;
+  padding:6px 14px;border-radius:6px;font-size:.74rem;font-weight:700;
+  cursor:pointer;margin-top:.5rem;font-family:'Nunito',sans-serif;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:500px){
+  .form-grid{grid-template-columns:1fr;}
+  .form-full{grid-column:1;}
+  .animal-row{grid-template-columns:50px 1fr;gap:.6rem;}
+  .row-btns{flex-direction:row;grid-column:1/-1;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-card">
+    <div class="login-icon">🔐</div>
+    <h2>Admin Panel</h2>
+    <p>Seasonal Premium Sheep Stall</p>
+    <input class="login-input" type="password" id="loginPass" placeholder="Enter Admin Password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Login →</button>
+    <div class="login-err" id="loginErr">❌ Wrong password. Try again.</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+  <div class="topbar">
+    <div class="topbar-brand">🐑 Admin Panel</div>
+    <div class="topbar-right">
+      <span class="admin-badge">ADMIN</span>
+      <button class="logout-btn" onclick="doLogout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('animals',this)">🐑 Animals</div>
+    <div class="tab" onclick="switchTab('setup',this)">⚙️ Firebase Setup</div>
+    <div class="tab" onclick="switchTab('preview',this)">👁️ Preview Site</div>
+  </div>
+
+  <!-- ANIMALS TAB -->
+  <div class="content" id="tab-animals">
+    <div class="stats-row" id="statsRow">
+      <div class="stat-card"><div class="stat-val" id="statTotal">—</div><div class="stat-lbl">Total Animals</div></div>
+      <div class="stat-card"><div class="stat-val" id="statAvail">—</div><div class="stat-lbl">Available</div></div>
+      <div class="stat-card"><div class="stat-val" id="statSold">—</div><div class="stat-lbl">Sold</div></div>
+      <div class="stat-card"><div class="stat-val" id="statBreeds">—</div><div class="stat-lbl">Breeds</div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">🐑 Manage Animals</div>
+        <button class="btn-add" onclick="openAddModal()">+ Add Animal</button>
+      </div>
+      <div id="animalList" class="animal-list">
+        <div class="loading"><div class="spinner"></div>Loading animals...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SETUP TAB -->
+  <div class="content" id="tab-setup" style="display:none">
+    <div class="card">
+      <div class="card-header"><div class="card-title">⚙️ Firebase Setup Guide</div></div>
+      <p style="font-size:.82rem;color:var(--txt2);margin-bottom:1.2rem;line-height:1.6;">
+        To enable photo uploads and live price updates on your website, you need to connect Firebase (free by Google). Follow these steps once — takes about 10 minutes.
+      </p>
+      <div class="setup-steps">
+        <div class="setup-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Go to Firebase Console</h4>
+            <p>Visit <code>console.firebase.google.com</code> → Sign in with your Google account → Click <strong>"Add project"</strong> → Name it <strong>seasonal-sheep-stall</strong> → Continue → Disable Google Analytics → Create project</p>
+          </div>
+        </div>
+        <div class="setup-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Enable Firestore Database</h4>
+            <p>In left sidebar → <strong>Firestore Database</strong> → Create database → Choose <strong>"Start in test mode"</strong> → Select region <strong>asia-south1 (Mumbai)</strong> → Done</p>
+          </div>
+        </div>
+        <div class="setup-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Enable Storage (for photos)</h4>
+            <p>In left sidebar → <strong>Storage</strong> → Get Started → Test mode → Next → Done</p>
+          </div>
+        </div>
+        <div class="setup-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Get your Config Keys</h4>
+            <p>Click ⚙️ Project Settings → <strong>"Your apps"</strong> section → Click <strong>"Web"</strong> icon (&lt;/&gt;) → Register app as <strong>sheep-stall</strong> → Copy the firebaseConfig object</p>
+            <p style="margin-top:.5rem;">It looks like this:</p>
+            <div class="config-box">
+<span class="comment">// Replace these with YOUR actual values from Firebase</span><br>
+<span class="key">apiKey</span>: <span class="val">"AIzaSy..."</span>,<br>
+<span class="key">authDomain</span>: <span class="val">"seasonal-sheep-stall.firebaseapp.com"</span>,<br>
+<span class="key">projectId</span>: <span class="val">"seasonal-sheep-stall"</span>,<br>
+<span class="key">storageBucket</span>: <span class="val">"seasonal-sheep-stall.appspot.com"</span>,<br>
+<span class="key">messagingSenderId</span>: <span class="val">"123456789"</span>,<br>
+<span class="key">appId</span>: <span class="val">"1:123:web:abc123"</span>
+            </div>
+          </div>
+        </div>
+        <div class="setup-step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>Paste config in admin.html & index.html</h4>
+            <p>In both files, find the section marked <code>PASTE YOUR FIREBASE CONFIG HERE</code> and replace the placeholder values with your actual Firebase config keys. Then re-upload both files to GitHub.</p>
+          </div>
+        </div>
+        <div class="setup-step">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <h4>Done! 🎉</h4>
+            <p>Come back to this Admin Panel → Animals tab → Add animals with photos, prices & weight. They'll appear live on <code>seasonalsheep.in</code> instantly!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="card-title">🔑 Change Admin Password</div></div>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;align-items:flex-end;">
+        <div style="flex:1;min-width:200px;">
+          <div class="form-label" style="margin-bottom:4px;">New Password</div>
+          <input class="form-input" type="password" id="newPassInput" placeholder="Enter new password">
+        </div>
+        <button class="btn-save" onclick="changePassword()" style="margin-bottom:0;">Save Password</button>
+      </div>
+      <p style="font-size:.75rem;color:var(--txt3);margin-top:.5rem;">Password is stored locally in the browser. Default: <strong>sheep2025</strong></p>
+    </div>
+  </div>
+
+  <!-- PREVIEW TAB -->
+  <div class="content" id="tab-preview" style="display:none">
+    <div class="card">
+      <div class="card-header"><div class="card-title">👁️ Live Site Preview</div></div>
+      <p style="font-size:.82rem;color:var(--txt2);margin-bottom:1rem;">Your live website as customers see it.</p>
+      <a href="https://seasonalsheep.in" target="_blank" class="btn-add" style="display:inline-flex;">🌐 Open seasonalsheep.in</a>
+    </div>
+  </div>
+</div>
+
+<!-- ADD/EDIT MODAL -->
+<div class="modal-overlay" id="animalModal">
+  <div class="modal">
+    <h3 id="modalTitle">➕ Add New Animal</h3>
+    <div class="form-grid">
+      <div class="form-group form-full">
+        <div class="form-label">Animal Name *</div>
+        <input class="form-input" id="fName" placeholder="e.g. Bannur Sheep">
+      </div>
+      <div class="form-group">
+        <div class="form-label">Type *</div>
+        <select class="form-select" id="fType">
+          <option value="Sheep">🐑 Sheep</option>
+          <option value="Goat">🐐 Goat</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="form-label">Origin / Breed</div>
+        <input class="form-input" id="fOrigin" placeholder="e.g. Karnataka">
+      </div>
+      <div class="form-group">
+        <div class="form-label">Price (₹) *</div>
+        <input class="form-input" id="fPrice" type="number" placeholder="e.g. 15000">
+      </div>
+      <div class="form-group">
+        <div class="form-label">Price Note</div>
+        <input class="form-input" id="fPriceNote" placeholder="e.g. Starting price">
+      </div>
+      <div class="form-group">
+        <div class="form-label">Weight Min (kg) *</div>
+        <input class="form-input" id="fWeightMin" type="number" placeholder="e.g. 25">
+      </div>
+      <div class="form-group">
+        <div class="form-label">Weight Max (kg) *</div>
+        <input class="form-input" id="fWeightMax" type="number" placeholder="e.g. 40">
+      </div>
+      <div class="form-group">
+        <div class="form-label">Age</div>
+        <input class="form-input" id="fAge" placeholder="e.g. 1–2 Years">
+      </div>
+      <div class="form-group">
+        <div class="form-label">Availability</div>
+        <select class="form-select" id="fStatus">
+          <option value="avail">✅ Available</option>
+          <option value="limited">⚡ Limited</option>
+          <option value="sold">❌ Sold Out</option>
+        </select>
+      </div>
+      <div class="form-group form-full">
+        <div class="form-label">Badge / Label</div>
+        <input class="form-input" id="fBadge" placeholder="e.g. ⭐ Best Seller">
+      </div>
+      <div class="form-group form-full">
+        <div class="form-label">Description</div>
+        <textarea class="form-textarea" id="fDesc" placeholder="Describe the animal — breed traits, quality, etc."></textarea>
+      </div>
+      <div class="form-group form-full">
+        <div class="form-label">Animal's Speech (shown on card)</div>
+        <textarea class="form-textarea" id="fQuote" placeholder="e.g. I'm healthy and ready for your Qurbani!"></textarea>
+      </div>
+      <div class="form-group form-full">
+        <div class="form-label">📸 Photos (up to 3)</div>
+        <div class="photo-upload-area" onclick="document.getElementById('photoInput').click()">
+          <div style="font-size:1.8rem;margin-bottom:.3rem;">📷</div>
+          <div style="font-size:.82rem;color:var(--txt3);">Tap to upload photos from your phone or computer</div>
+          <div style="font-size:.74rem;color:var(--txt3);margin-top:.2rem;">JPG, PNG supported · Max 2MB each</div>
+          <input type="file" id="photoInput" accept="image/*" multiple onchange="handlePhotos(event)">
+        </div>
+        <div class="upload-progress" id="uploadProgress">
+          <div class="upload-progress-bar" id="uploadProgressBar" style="width:0%"></div>
+        </div>
+        <div class="photo-preview" id="photoPreview"></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" id="saveBtn" onclick="saveAnimal()">💾 Save Animal</button>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getFirestore, collection, getDocs, addDoc, updateDoc, deleteDoc, doc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js';
+
+/* ════════════════════════════════════
+   🔥 PASTE YOUR FIREBASE CONFIG HERE
+   (Get from Firebase Console → Project Settings → Your Apps → Web)
+════════════════════════════════════ */
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+/* ════════════════════════════════════ */
+
+let app, db, storage, firebaseReady = false;
+
+try {
+  if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
+    app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+    storage = getStorage(app);
+    firebaseReady = true;
+  }
+} catch(e) {
+  console.log('Firebase not configured yet');
+}
+
+// ── LOCAL STORAGE FALLBACK (works without Firebase) ──
+let animals = JSON.parse(localStorage.getItem('sheep_animals') || '[]');
+let editingId = null;
+let uploadedPhotos = []; // base64 or URLs
+
+// Preload default animals if empty
+if (animals.length === 0) {
+  animals = [
+    { id:'1', name:'Bannur Sheep', type:'Sheep', origin:'Karnataka', price:15000, priceNote:'By live weight', weightMin:25, weightMax:40, age:'1–2 Years', status:'avail', badge:'🏷️ Best Seller', desc:'Native Karnataka breed — excellent meat quality, compact body.', quote:"I'm healthy and ready for your Qurbani! Come visit me!", photos:[], createdAt: Date.now() },
+    { id:'2', name:'Boer Goat', type:'Goat', origin:'South Africa', price:75000, priceNote:'Premium import breed', weightMin:50, weightMax:90, age:'1–3 Years', status:'limited', badge:'💎 Exotic Premium', desc:'World-renowned meat breed. Heavy body, exceptional growth.', quote:"I'm the premium choice for your Qurbani! Big and healthy!", photos:[], createdAt: Date.now() },
+  ];
+  localStorage.setItem('sheep_animals', JSON.stringify(animals));
+}
+
+// ── LOGIN ──
+const PASS_KEY = 'sheep_admin_pass';
+function getPass() { return localStorage.getItem(PASS_KEY) || 'sheep2025'; }
+
+window.doLogin = function() {
+  const val = document.getElementById('loginPass').value;
+  if (val === getPass()) {
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    renderAnimals();
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+  }
+};
+
+window.doLogout = function() {
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('loginWrap').style.display = 'flex';
+  document.getElementById('loginPass').value = '';
+};
+
+window.changePassword = function() {
+  const val = document.getElementById('newPassInput').value.trim();
+  if (!val || val.length < 4) { showToast('Password must be at least 4 characters', true); return; }
+  localStorage.setItem(PASS_KEY, val);
+  showToast('✅ Password updated!');
+  document.getElementById('newPassInput').value = '';
+};
+
+// ── TABS ──
+window.switchTab = function(tab, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  ['animals','setup','preview'].forEach(t => {
+    document.getElementById('tab-' + t).style.display = t === tab ? 'block' : 'none';
+  });
+};
+
+// ── RENDER ANIMALS ──
+window.renderAnimals = function() {
+  const list = document.getElementById('animalList');
+  if (!animals.length) {
+    list.innerHTML = '<div class="loading">No animals yet. Click "+ Add Animal" to get started!</div>';
+    updateStats();
+    return;
+  }
+  list.innerHTML = animals.map(a => {
+    const thumb = a.photos && a.photos[0]
+      ? `<img src="${a.photos[0]}" alt="${a.name}">`
+      : (a.type === 'Goat' ? '🐐' : '🐑');
+    return `
+    <div class="animal-row">
+      <div class="animal-thumb">${thumb}</div>
+      <div class="animal-info">
+        <h4>${a.name}</h4>
+        <p>${a.origin || ''} · ₹${Number(a.price).toLocaleString('en-IN')} · ${a.weightMin}–${a.weightMax} kg</p>
+        <div class="animal-chips">
+          <span class="chip chip-${a.status}">${a.status === 'avail' ? '✅ Available' : a.status === 'limited' ? '⚡ Limited' : '❌ Sold'}</span>
+          ${a.badge ? `<span class="chip">${a.badge}</span>` : ''}
+          ${a.photos && a.photos.length ? `<span class="chip">📸 ${a.photos.length} photo${a.photos.length>1?'s':''}</span>` : ''}
+        </div>
+      </div>
+      <div class="row-btns">
+        <button class="btn-edit" onclick="openEditModal('${a.id}')">✏️ Edit</button>
+        <button class="btn-del" onclick="deleteAnimal('${a.id}')">🗑️ Delete</button>
+      </div>
+    </div>`;
+  }).join('');
+  updateStats();
+};
+
+function updateStats() {
+  document.getElementById('statTotal').textContent = animals.length;
+  document.getElementById('statAvail').textContent = animals.filter(a => a.status === 'avail').length;
+  document.getElementById('statSold').textContent = animals.filter(a => a.status === 'sold').length;
+  const breeds = [...new Set(animals.map(a => a.name))].length;
+  document.getElementById('statBreeds').textContent = breeds;
+}
+
+// ── MODAL ──
+window.openAddModal = function() {
+  editingId = null;
+  uploadedPhotos = [];
+  document.getElementById('modalTitle').textContent = '➕ Add New Animal';
+  clearForm();
+  document.getElementById('animalModal').classList.add('open');
+};
+
+window.openEditModal = function(id) {
+  const a = animals.find(x => x.id === id);
+  if (!a) return;
+  editingId = id;
+  uploadedPhotos = a.photos ? [...a.photos] : [];
+  document.getElementById('modalTitle').textContent = '✏️ Edit Animal';
+  document.getElementById('fName').value = a.name || '';
+  document.getElementById('fType').value = a.type || 'Sheep';
+  document.getElementById('fOrigin').value = a.origin || '';
+  document.getElementById('fPrice').value = a.price || '';
+  document.getElementById('fPriceNote').value = a.priceNote || '';
+  document.getElementById('fWeightMin').value = a.weightMin || '';
+  document.getElementById('fWeightMax').value = a.weightMax || '';
+  document.getElementById('fAge').value = a.age || '';
+  document.getElementById('fStatus').value = a.status || 'avail';
+  document.getElementById('fBadge').value = a.badge || '';
+  document.getElementById('fDesc').value = a.desc || '';
+  document.getElementById('fQuote').value = a.quote || '';
+  renderPhotoPreviews();
+  document.getElementById('animalModal').classList.add('open');
+};
+
+window.closeModal = function() {
+  document.getElementById('animalModal').classList.remove('open');
+  uploadedPhotos = [];
+  clearForm();
+};
+
+function clearForm() {
+  ['fName','fOrigin','fPrice','fPriceNote','fWeightMin','fWeightMax','fAge','fBadge','fDesc','fQuote']
+    .forEach(id => { document.getElementById(id).value = ''; });
+  document.getElementById('fType').value = 'Sheep';
+  document.getElementById('fStatus').value = 'avail';
+  document.getElementById('photoPreview').innerHTML = '';
+  uploadedPhotos = [];
+}
+
+// ── PHOTO HANDLING ──
+window.handlePhotos = async function(e) {
+  const files = Array.from(e.target.files).slice(0, 3 - uploadedPhotos.length);
+  if (!files.length) return;
+
+  const progress = document.getElementById('uploadProgress');
+  const bar = document.getElementById('uploadProgressBar');
+  progress.style.display = 'block';
+  bar.style.width = '10%';
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (file.size > 3 * 1024 * 1024) { showToast('Photo too large (max 3MB)', true); continue; }
+
+    bar.style.width = ((i + 0.5) / files.length * 90) + '%';
+
+    if (firebaseReady) {
+      try {
+        const storageRef = ref(storage, `animals/${Date.now()}_${file.name}`);
+        const snapshot = await uploadBytes(storageRef, file);
+        const url = await getDownloadURL(snapshot.ref);
+        uploadedPhotos.push(url);
+      } catch(err) {
+        // Fallback to base64
+        uploadedPhotos.push(await toBase64(file));
+      }
+    } else {
+      uploadedPhotos.push(await toBase64(file));
+    }
+  }
+
+  bar.style.width = '100%';
+  setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 600);
+  renderPhotoPreviews();
+};
+
+function toBase64(file) {
+  return new Promise(res => {
+    const reader = new FileReader();
+    reader.onload = e => res(e.target.result);
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderPhotoPreviews() {
+  const preview = document.getElementById('photoPreview');
+  preview.innerHTML = uploadedPhotos.map((url, i) => `
+    <div class="photo-preview-item">
+      <img src="${url}" alt="Photo ${i+1}">
+      <button class="remove-photo" onclick="removePhoto(${i})">×</button>
+    </div>
+  `).join('');
+}
+
+window.removePhoto = function(i) {
+  uploadedPhotos.splice(i, 1);
+  renderPhotoPreviews();
+};
+
+// ── SAVE ANIMAL ──
+window.saveAnimal = async function() {
+  const name = document.getElementById('fName').value.trim();
+  const price = document.getElementById('fPrice').value;
+  const wMin = document.getElementById('fWeightMin').value;
+  const wMax = document.getElementById('fWeightMax').value;
+  if (!name || !price || !wMin || !wMax) { showToast('Please fill Name, Price & Weight fields', true); return; }
+
+  const btn = document.getElementById('saveBtn');
+  btn.textContent = '⏳ Saving...'; btn.disabled = true;
+
+  const animalData = {
+    name, price: Number(price),
+    type: document.getElementById('fType').value,
+    origin: document.getElementById('fOrigin').value,
+    priceNote: document.getElementById('fPriceNote').value || 'By live weight',
+    weightMin: Number(wMin), weightMax: Number(wMax),
+    age: document.getElementById('fAge').value,
+    status: document.getElementById('fStatus').value,
+    badge: document.getElementById('fBadge').value,
+    desc: document.getElementById('fDesc').value,
+    quote: document.getElementById('fQuote').value,
+    photos: uploadedPhotos,
+    updatedAt: Date.now()
+  };
+
+  if (firebaseReady) {
+    try {
+      if (editingId) {
+        await updateDoc(doc(db, 'animals', editingId), animalData);
+        const idx = animals.findIndex(a => a.id === editingId);
+        if (idx > -1) animals[idx] = { ...animals[idx], ...animalData };
+      } else {
+        animalData.createdAt = Date.now();
+        const docRef = await addDoc(collection(db, 'animals'), animalData);
+        animals.push({ id: docRef.id, ...animalData });
+      }
+      showToast('✅ Saved to Firebase — live on website!');
+    } catch(err) {
+      showToast('Firebase error — saved locally', true);
+      saveLocally(animalData);
+    }
+  } else {
+    saveLocally(animalData);
+    showToast('✅ Saved locally! (Setup Firebase to go live)');
+  }
+
+  btn.textContent = '💾 Save Animal'; btn.disabled = false;
+  closeModal();
+  renderAnimals();
+};
+
+function saveLocally(data) {
+  if (editingId) {
+    const idx = animals.findIndex(a => a.id === editingId);
+    if (idx > -1) animals[idx] = { ...animals[idx], ...data };
+  } else {
+    animals.push({ id: Date.now().toString(), ...data, createdAt: Date.now() });
+  }
+  localStorage.setItem('sheep_animals', JSON.stringify(animals));
+}
+
+// ── DELETE ──
+window.deleteAnimal = function(id) {
+  if (!confirm('Delete this animal? This cannot be undone.')) return;
+  if (firebaseReady) {
+    deleteDoc(doc(db, 'animals', id)).catch(console.error);
+  }
+  animals = animals.filter(a => a.id !== id);
+  localStorage.setItem('sheep_animals', JSON.stringify(animals));
+  renderAnimals();
+  showToast('🗑️ Animal deleted');
+};
+
+// ── TOAST ──
+window.showToast = function(msg, isError = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isError ? ' error' : '');
+  setTimeout(() => { t.className = 'toast'; }, 3500);
+};
+
+// ── CLOSE MODAL ON OUTSIDE CLICK ──
+document.getElementById('animalModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+</body>
+</html>
