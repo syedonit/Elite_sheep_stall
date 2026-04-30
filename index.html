@@ -31,6 +31,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+/* [ALL YOUR EXISTING CSS STYLES - keep exactly as is] */
 :root{
   --green:#1a6b3c;--green2:#2d9e5f;--green3:#0d3d22;
   --gold:#c9943a;--gold2:#e8b45a;--gold3:#f5d08a;
@@ -850,159 +851,43 @@ footer .copy{margin-top:.8rem;font-size:.7rem;opacity:.4;}
 </footer>
 
 <script>
-/* ── DATA ── */
-const animals = [
-  {
-    name:"Native Goat (Desi)", type:"Goat", emoji:"🐐",
-    quote:"I'm your local Desi goat — healthy, strong & affordable. Come pick me for your Qurbani! 🐐",
-    weightMin:15, weightMax:30, weightLabel:"15–30 kg",
-    age:"1–2 Years", origin:"Local Breed", vaccinated:true,
-    priceMin:10000, priceLabel:"₹10,000", priceNote:"Starting price",
-    status:"avail", statusLabel:"✓ Available", badge:"💰 Budget Friendly",
-    desc:"Local Indian breed, well-adapted to the Bangalore climate. Healthy, easy to handle & affordable for Qurbani. Good meat quality."
-  },
-  {
-    name:"Bannur Sheep", type:"Sheep", emoji:"🐑",
-    quote:"I'm from Karnataka! Famous for soft meat & strong body. Best for Qurbani in South India! 🐑",
-    weightMin:25, weightMax:40, weightLabel:"25–40 kg",
-    age:"1–2 Years", origin:"Karnataka", vaccinated:true,
-    priceMin:15000, priceLabel:"₹15,000", priceNote:"By live weight",
-    status:"avail", statusLabel:"✓ Available", badge:"🏷️ Best Seller",
-    desc:"Native Karnataka breed — excellent meat quality, compact body, high weight gain. Most popular for Qurbani in South India."
-  },
-  {
-    name:"Andhra Sheep", type:"Sheep", emoji:"🐏",
-    quote:"Baaa! I'm from Andhra Pradesh — big, healthy & tasty. Choose me for your family's Eid! 🐏",
-    weightMin:30, weightMax:50, weightLabel:"30–50 kg",
-    age:"1–3 Years", origin:"Andhra Pradesh", vaccinated:true,
-    priceMin:18000, priceLabel:"₹18,000", priceNote:"By live weight",
-    status:"avail", statusLabel:"✓ Available", badge:"🏋️ Heavy Weight",
-    desc:"Popular South Indian breed with heavy body weight. High meat yield — ideal for large family sacrifices."
-  },
-  {
-    name:"Amingad Sheep", type:"Sheep", emoji:"🐑",
-    quote:"I'm an Amingad sheep from North Karnataka — premium quality and top-class for your Qurbani! Come see me! 🌿",
-    weightMin:30, weightMax:50, weightLabel:"30–50 kg",
-    age:"1–2 Years", origin:"North Karnataka", vaccinated:true,
-    priceMin:25000, priceLabel:"₹25,000", priceNote:"Starting price",
-    status:"avail", statusLabel:"✓ Available", badge:"⭐ Premium",
-    desc:"Famous North Karnataka breed known for exceptional meat quality and large body frame. Highly sought-after for Eid Qurbani."
-  },
-  {
-    name:"Beetal Sheep", type:"Sheep", emoji:"🐑",
-    quote:"I'm from Punjab — tall, strong & premium quality. Top class meat for your Qurbani! 🐑",
-    weightMin:35, weightMax:55, weightLabel:"35–55 kg",
-    age:"1–2 Years", origin:"Punjab", vaccinated:true,
-    priceMin:20000, priceLabel:"₹20,000", priceNote:"By live weight",
-    status:"avail", statusLabel:"✓ Available", badge:"⭐ Premium",
-    desc:"Premium North Indian breed from Punjab. Large body, long ears, superior meat quality. Highly sought-after for Qurbani."
-  },
-  {
-    name:"Sirohi Sheep", type:"Sheep", emoji:"🐑",
-    quote:"From Rajasthan! Hardy, healthy & great meat quality. Come visit me at the stall! 🐑",
-    weightMin:25, weightMax:45, weightLabel:"25–45 kg",
-    age:"1–2 Years", origin:"Rajasthan", vaccinated:true,
-    priceMin:16000, priceLabel:"₹16,000", priceNote:"By live weight",
-    status:"limited", statusLabel:"⚡ Limited", badge:"⚡ Limited Stock",
-    desc:"Hardy Rajasthani breed. Adapts well to all climates, known for good growth rate and quality meat. Very few left!"
-  },
-  {
-    name:"Chegu Goat", type:"Goat", emoji:"🐐",
-    quote:"From the mountains of Himachal! Pure, strong & healthy. Visit me at Nagawara! 🏔️",
-    weightMin:20, weightMax:35, weightLabel:"20–35 kg",
-    age:"1–2 Years", origin:"Himachal Pradesh", vaccinated:true,
-    priceMin:14000, priceLabel:"₹14,000", priceNote:"By live weight",
-    status:"avail", statusLabel:"✓ Available", badge:"🏔️ Mountain Breed",
-    desc:"Mountain breed from Himachal Pradesh. Known for fine quality, strong immunity and excellent health. Rare & special breed."
-  },
-  {
-    name:"Barbari Goat", type:"Goat", emoji:"🐐",
-    quote:"Small but very healthy & beautiful! Perfect for Qurbani. Come take me home! 🐐",
-    weightMin:15, weightMax:30, weightLabel:"15–30 kg",
-    age:"1–2 Years", origin:"Uttar Pradesh", vaccinated:true,
-    priceMin:10000, priceLabel:"₹10,000", priceNote:"Budget-friendly",
-    status:"avail", statusLabel:"✓ Available", badge:"💰 Budget Friendly",
-    desc:"Compact, beautiful breed from UP. Fast growing, high fertility, excellent meat quality — very popular & affordable."
-  },
-  {
-    name:"Buck (Male Goat)", type:"Goat", emoji:"🐐",
-    quote:"Strong, big & healthy! Great horns, great body — I am ready for your Qurbani this Eid! 💪",
-    weightMin:20, weightMax:35, weightLabel:"20–35 kg",
-    age:"1–2 Years", origin:"Male Goat", vaccinated:true,
-    priceMin:12000, priceLabel:"₹12,000", priceNote:"By live weight",
-    status:"avail", statusLabel:"✓ Available", badge:"💪 Strong Build",
-    desc:"Healthy male goat with strong build. Excellent for Qurbani with good meat yield. Vet-checked and vaccinated."
-  },
-  {
-    name:"Jamunapari Goat", type:"Goat", emoji:"🐐",
-    quote:"Assalamualaikum! I'm a Jamunapari from UP — long ears, regal look & great meat. Visit me! 🌟",
-    weightMin:35, weightMax:60, weightLabel:"35–60 kg",
-    age:"1–2 Years", origin:"Uttar Pradesh", vaccinated:true,
-    priceMin:30000, priceLabel:"₹30,000", priceNote:"Starting price",
-    status:"avail", statusLabel:"✓ Available", badge:"👑 Majestic Breed",
-    desc:"India's tallest goat breed. Long legs, Roman nose & impressive size. Highly prized for Qurbani and excellent meat yield."
-  },
-  {
-    name:"Boer Goat", type:"Goat", emoji:"🐐",
-    quote:"Salam! I'm a premium Boer goat — imported breed, big body, best meat. Come see me! 🐐",
-    weightMin:50, weightMax:90, weightLabel:"50–90 kg",
-    age:"1–3 Years", origin:"South Africa / Imported", vaccinated:true,
-    priceMin:75000, priceLabel:"₹75,000", priceNote:"Premium import breed",
-    status:"limited", statusLabel:"⚡ Limited", badge:"💎 Exotic Premium",
-    desc:"World-renowned meat breed from South Africa. Exceptional growth rate, heavy body weight — the most premium Qurbani animal."
-  }
+/* ── FIREBASE CONFIG (YOUR ACTUAL CONFIG) ── */
+const firebaseConfig = {
+  apiKey: "AIzaSyACduHPIrZv_rp01vh_EqnfazRk0oFRnJs",
+  authDomain: "seasonal-sheep-stall.firebaseapp.com",
+  projectId: "seasonal-sheep-stall",
+  storageBucket: "seasonal-sheep-stall.firebasestorage.app",
+  messagingSenderId: "923546588237",
+  appId: "1:923546588237:web:97779cbda902b4aa8b3804",
+  measurementId: "G-4V1S4SXD6L"
+};
+
+/* ── FALLBACK DATA (in case Firebase fails) ── */
+const fallbackAnimals = [
+  { name:"Native Goat (Desi)", type:"Goat", emoji:"🐐", quote:"I'm your local Desi goat — healthy, strong & affordable.", weightMin:15, weightMax:30, weightLabel:"15–30 kg", age:"1–2 Years", origin:"Local Breed", vaccinated:true, priceMin:10000, priceLabel:"₹10,000", priceNote:"Starting price", status:"avail", statusLabel:"✓ Available", badge:"💰 Budget Friendly", desc:"Local Indian breed, well-adapted to the Bangalore climate." },
+  { name:"Bannur Sheep", type:"Sheep", emoji:"🐑", quote:"I'm from Karnataka! Famous for soft meat & strong body.", weightMin:25, weightMax:40, weightLabel:"25–40 kg", age:"1–2 Years", origin:"Karnataka", vaccinated:true, priceMin:15000, priceLabel:"₹15,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"🏷️ Best Seller", desc:"Native Karnataka breed — excellent meat quality." },
+  { name:"Andhra Sheep", type:"Sheep", emoji:"🐏", quote:"Baaa! I'm from Andhra Pradesh — big, healthy & tasty.", weightMin:30, weightMax:50, weightLabel:"30–50 kg", age:"1–3 Years", origin:"Andhra Pradesh", vaccinated:true, priceMin:18000, priceLabel:"₹18,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"🏋️ Heavy Weight", desc:"Popular South Indian breed with heavy body weight." },
+  { name:"Amingad Sheep", type:"Sheep", emoji:"🐑", quote:"I'm an Amingad sheep from North Karnataka — premium quality!", weightMin:30, weightMax:50, weightLabel:"30–50 kg", age:"1–2 Years", origin:"North Karnataka", vaccinated:true, priceMin:25000, priceLabel:"₹25,000", priceNote:"Starting price", status:"avail", statusLabel:"✓ Available", badge:"⭐ Premium", desc:"Famous North Karnataka breed for exceptional meat quality." },
+  { name:"Beetal Sheep", type:"Sheep", emoji:"🐑", quote:"I'm from Punjab — tall, strong & premium quality.", weightMin:35, weightMax:55, weightLabel:"35–55 kg", age:"1–2 Years", origin:"Punjab", vaccinated:true, priceMin:20000, priceLabel:"₹20,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"⭐ Premium", desc:"Premium North Indian breed from Punjab." },
+  { name:"Sirohi Sheep", type:"Sheep", emoji:"🐑", quote:"From Rajasthan! Hardy, healthy & great meat quality.", weightMin:25, weightMax:45, weightLabel:"25–45 kg", age:"1–2 Years", origin:"Rajasthan", vaccinated:true, priceMin:16000, priceLabel:"₹16,000", priceNote:"By live weight", status:"limited", statusLabel:"⚡ Limited", badge:"⚡ Limited Stock", desc:"Hardy Rajasthani breed." },
+  { name:"Chegu Goat", type:"Goat", emoji:"🐐", quote:"From the mountains of Himachal! Pure, strong & healthy.", weightMin:20, weightMax:35, weightLabel:"20–35 kg", age:"1–2 Years", origin:"Himachal Pradesh", vaccinated:true, priceMin:14000, priceLabel:"₹14,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"🏔️ Mountain Breed", desc:"Mountain breed from Himachal Pradesh." },
+  { name:"Barbari Goat", type:"Goat", emoji:"🐐", quote:"Small but very healthy & beautiful! Perfect for Qurbani.", weightMin:15, weightMax:30, weightLabel:"15–30 kg", age:"1–2 Years", origin:"Uttar Pradesh", vaccinated:true, priceMin:10000, priceLabel:"₹10,000", priceNote:"Budget-friendly", status:"avail", statusLabel:"✓ Available", badge:"💰 Budget Friendly", desc:"Compact, beautiful breed from UP." },
+  { name:"Buck (Male Goat)", type:"Goat", emoji:"🐐", quote:"Strong, big & healthy! Great horns, great body!", weightMin:20, weightMax:35, weightLabel:"20–35 kg", age:"1–2 Years", origin:"Male Goat", vaccinated:true, priceMin:12000, priceLabel:"₹12,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"💪 Strong Build", desc:"Healthy male goat with strong build." },
+  { name:"Jamunapari Goat", type:"Goat", emoji:"🐐", quote:"Assalamualaikum! I'm a Jamunapari from UP — long ears, regal look!", weightMin:35, weightMax:60, weightLabel:"35–60 kg", age:"1–2 Years", origin:"Uttar Pradesh", vaccinated:true, priceMin:30000, priceLabel:"₹30,000", priceNote:"Starting price", status:"avail", statusLabel:"✓ Available", badge:"👑 Majestic Breed", desc:"India's tallest goat breed." },
+  { name:"Boer Goat", type:"Goat", emoji:"🐐", quote:"Salam! I'm a premium Boer goat — imported breed, big body!", weightMin:50, weightMax:90, weightLabel:"50–90 kg", age:"1–3 Years", origin:"South Africa", vaccinated:true, priceMin:75000, priceLabel:"₹75,000", priceNote:"Premium import", status:"limited", statusLabel:"⚡ Limited", badge:"💎 Exotic Premium", desc:"World-renowned meat breed." }
 ];
 
+let currentAnimals = [...fallbackAnimals];
 let activeBreed = "All";
 let activePriceRange = "all";
 let activeWeightRange = "all";
 
-/* ── BUILD BREED PILLS ── */
-function buildBreedPills() {
-  const breeds = ["All", ...animals.map(a => a.name)];
-  const container = document.getElementById('breedFilter');
-  container.innerHTML = breeds.map(b => `
-    <div class="breed-pill${b==="All"?" active":""}" onclick="setBreed('${b}')">${b}</div>
-  `).join('');
-}
-
-function setBreed(breed) {
-  activeBreed = breed;
-  document.querySelectorAll('.breed-pill').forEach(p => {
-    p.classList.toggle('active', p.textContent === breed);
-  });
-  applyFilters();
-}
-
-/* ── APPLY FILTERS ── */
-function applyFilters() {
-  activePriceRange = document.getElementById('priceFilter').value;
-  activeWeightRange = document.getElementById('weightFilter').value;
-  let shown = 0;
-  document.querySelectorAll('.animal-card').forEach((card, i) => {
-    const a = animals[i];
-    let show = true;
-    if (activeBreed !== "All" && a.name !== activeBreed) show = false;
-    if (activePriceRange !== "all") {
-      const [pMin, pMax] = activePriceRange.split('-').map(Number);
-      if (a.priceMin < pMin || a.priceMin > pMax) show = false;
-    }
-    if (activeWeightRange !== "all") {
-      const [wMin, wMax] = activeWeightRange.split('-').map(Number);
-      if (a.weightMax < wMin || a.weightMin > wMax) show = false;
-    }
-    card.classList.toggle('hidden', !show);
-    if (show) shown++;
-  });
-  document.getElementById('resultCount').textContent = shown === animals.length ? `All ${shown} animals` : `${shown} animal${shown!==1?'s':''} found`;
-  const noRes = document.getElementById('noResults');
-  if (noRes) noRes.style.display = shown === 0 ? 'block' : 'none';
-}
-
 /* ── RENDER ANIMALS ── */
 function renderAnimals() {
   const grid = document.getElementById('animalsGrid');
-  grid.innerHTML = animals.map((a, i) => `
+  if (!grid) return;
+  
+  grid.innerHTML = currentAnimals.map((a, i) => `
     <div class="animal-card" data-index="${i}">
       <div class="card-img-wrap">
         <div class="card-emoji-thumb">${a.emoji}</div>
@@ -1030,101 +915,199 @@ function renderAnimals() {
       </div>
     </div>
   `).join('') + `<div id="noResults" class="no-results" style="display:none">😔 No animals match your filters. <a href="#" onclick="resetFilters()" style="color:var(--green)">Reset filters</a></div>`;
-}
-
-function resetFilters() {
-  setBreed('All');
-  document.getElementById('priceFilter').value = 'all';
-  document.getElementById('weightFilter').value = 'all';
+  
   applyFilters();
 }
 
-/* ── WHATSAPP ── */
 function buildWa(breed) {
   const msg = encodeURIComponent(`Assalamualaikum! I visited your website and I'm interested in *${breed}* for Qurbani 🐑. Please share the latest availability and price. JazakAllah Khair!`);
   return `https://wa.me/918105122693?text=${msg}`;
 }
+
 function waInquiry(breed) {
   window.open(buildWa(breed), '_blank');
 }
 
-/* ── INQUIRY FORM ── */
+function buildBreedPills() {
+  const breeds = ["All", ...currentAnimals.map(a => a.name)];
+  const container = document.getElementById('breedFilter');
+  if (!container) return;
+  container.innerHTML = breeds.map(b => `
+    <div class="breed-pill${b==="All"?" active":""}" onclick="setBreed('${b.replace(/'/g, "\\'")}')">${b}</div>
+  `).join('');
+}
+
+function setBreed(breed) {
+  activeBreed = breed;
+  document.querySelectorAll('.breed-pill').forEach(p => {
+    p.classList.toggle('active', p.textContent === breed);
+  });
+  applyFilters();
+}
+
+function applyFilters() {
+  activePriceRange = document.getElementById('priceFilter')?.value || "all";
+  activeWeightRange = document.getElementById('weightFilter')?.value || "all";
+  let shown = 0;
+  document.querySelectorAll('.animal-card').forEach((card, i) => {
+    const a = currentAnimals[i];
+    if (!a) return;
+    let show = true;
+    if (activeBreed !== "All" && a.name !== activeBreed) show = false;
+    if (activePriceRange !== "all") {
+      const [pMin, pMax] = activePriceRange.split('-').map(Number);
+      if (a.priceMin < pMin || a.priceMin > pMax) show = false;
+    }
+    if (activeWeightRange !== "all") {
+      const [wMin, wMax] = activeWeightRange.split('-').map(Number);
+      if (a.weightMax < wMin || a.weightMin > wMax) show = false;
+    }
+    card.classList.toggle('hidden', !show);
+    if (show) shown++;
+  });
+  const resultCount = document.getElementById('resultCount');
+  if (resultCount) {
+    resultCount.textContent = shown === currentAnimals.length ? `All ${shown} animals` : `${shown} animal${shown!==1?'s':''} found`;
+  }
+  const noRes = document.getElementById('noResults');
+  if (noRes) noRes.style.display = shown === 0 ? 'block' : 'none';
+}
+
+function resetFilters() {
+  setBreed('All');
+  const priceFilter = document.getElementById('priceFilter');
+  const weightFilter = document.getElementById('weightFilter');
+  if (priceFilter) priceFilter.value = 'all';
+  if (weightFilter) weightFilter.value = 'all';
+  applyFilters();
+}
+
 function sendInquiry() {
-  const name = document.getElementById('inqName').value.trim();
-  const phone = document.getElementById('inqPhone').value.trim();
-  const breed = document.getElementById('inqBreed').value;
-  const msg = document.getElementById('inqMsg').value.trim();
+  const name = document.getElementById('inqName')?.value.trim();
+  const phone = document.getElementById('inqPhone')?.value.trim();
+  const breed = document.getElementById('inqBreed')?.value;
+  const msg = document.getElementById('inqMsg')?.value.trim();
   if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
   const text = encodeURIComponent(`Assalamualaikum!\n\nName: ${name}\nPhone: ${phone}${breed?'\nBreed: '+breed:''}${msg?'\nMessage: '+msg:''}\n\nI saw your Seasonal Premium Sheep Stall website. JazakAllah Khair! 🐑`);
   window.open(`https://wa.me/918105122693?text=${text}`, '_blank');
 }
 
-/* ── SHARE ── */
-function setShareLink() {
-  const url = window.location.href;
-  const text = encodeURIComponent(`🐑 *Seasonal Premium Sheep Stall* – Premium Qurbani Animals in Bangalore!\n\n11 breeds: Bannur, Boer, Jamunapari, Beetal, Amingad & more!\n📍 HBR Layout, Nagawara, Bangalore\n📞 +91 81051 22693\n\n🔗 ${url}\n\nEid al-Adha Mubarak! 🌙`);
-  document.getElementById('shareWaBtn').href = `https://wa.me/?text=${text}`;
-}
 function copyLink() {
   navigator.clipboard.writeText(window.location.href).then(() => {
     const btn = document.querySelector('.sb-copy');
-    btn.textContent = '✅ Copied!';
-    setTimeout(() => { btn.textContent = '🔗 Copy Website Link'; }, 2500);
+    if (btn) {
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => { btn.textContent = '🔗 Copy Website Link'; }, 2500);
+    }
   });
 }
 
-/* ── INIT ── */
-renderAnimals();
-buildBreedPills();
-setShareLink();
-</script>
+function setShareLink() {
+  const url = window.location.href;
+  const text = encodeURIComponent(`🐑 *Seasonal Premium Sheep Stall* – Premium Qurbani Animals in Bangalore!\n\n11 breeds: Bannur, Boer, Jamunapari, Beetal, Amingad & more!\n📍 HBR Layout, Nagawara, Bangalore\n📞 +91 81051 22693\n\n🔗 ${url}\n\nEid al-Adha Mubarak! 🌙`);
+  const shareBtn = document.getElementById('shareWaBtn');
+  if (shareBtn) shareBtn.href = `https://wa.me/?text=${text}`;
+}
 
-<script>
-/* ═══════════════════════════════════
-   PWA CORE LOGIC
-═══════════════════════════════════ */
+/* ── LOAD FIREBASE DATA ── */
+async function loadFirebaseData() {
+  try {
+    // Dynamically load Firebase SDK
+    await new Promise((resolve, reject) => {
+      if (typeof firebase !== 'undefined') {
+        resolve();
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js';
+      script.onload = () => {
+        const fsScript = document.createElement('script');
+        fsScript.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js';
+        fsScript.onload = resolve;
+        fsScript.onerror = reject;
+        document.head.appendChild(fsScript);
+      };
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
+    
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+    
+    const db = firebase.firestore();
+    const querySnapshot = await db.collection("listings").get();
+    
+    if (!querySnapshot.empty) {
+      const firebaseAnimals = [];
+      querySnapshot.forEach(doc => {
+        const data = doc.data();
+        firebaseAnimals.push({
+          name: data.breed || data.name,
+          type: data.type || "Sheep",
+          emoji: data.type === "Goat" ? "🐐" : "🐑",
+          quote: data.description ? `"${data.description.substring(0, 100)}..."` : "Visit our stall for this premium animal!",
+          weightMin: parseInt(data.weight) || 20,
+          weightMax: parseInt(data.weight) + 10 || 40,
+          weightLabel: data.weight || "20-40 kg",
+          age: data.age || "1-2 Years",
+          origin: data.origin || "Premium Breed",
+          vaccinated: true,
+          priceMin: data.price || 15000,
+          priceLabel: `₹${(data.price || 15000).toLocaleString()}`,
+          priceNote: "By live weight",
+          status: data.availability === "Limited" ? "limited" : "avail",
+          statusLabel: data.availability === "Limited" ? "⚡ Limited" : "✓ Available",
+          badge: data.availability === "Limited" ? "⚡ Limited Stock" : (data.featured ? "⭐ Featured" : "✓ Available"),
+          desc: data.description || "Premium Qurbani animal, healthy and vaccinated."
+        });
+      });
+      
+      if (firebaseAnimals.length > 0) {
+        currentAnimals = firebaseAnimals;
+        console.log(`✅ Loaded ${currentAnimals.length} animals from Firestore!`);
+      }
+    }
+  } catch (error) {
+    console.log("⚠️ Firebase error, using fallback data:", error.message);
+  }
+  
+  // Render with final data
+  renderAnimals();
+  buildBreedPills();
+  setShareLink();
+}
 
-// 1. SPLASH SCREEN — hide after 1.6s
+/* ── PWA / UI INIT ── */
 window.addEventListener('load', () => {
   setTimeout(() => {
     const splash = document.getElementById('splash');
     if (splash) splash.classList.add('hidden');
   }, 1600);
+  
+  loadFirebaseData();
 });
 
-// 2. SERVICE WORKER REGISTRATION
+// Service Worker Registration
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(reg => console.log('✅ SW registered:', reg.scope))
-      .catch(err => console.log('SW error:', err));
-
-    // Listen for messages from SW
-    navigator.serviceWorker.addEventListener('message', e => {
-      if (e.data.type === 'ONLINE') {
-        showToast(e.data.message, 'green');
-      }
-    });
+    navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW error:', err));
   });
 }
 
-// 3. OFFLINE / ONLINE DETECTION
+// Offline detection
 const offlineBar = document.getElementById('offlineBar');
 function updateOnlineStatus() {
-  if (!navigator.onLine) {
-    offlineBar.classList.add('show');
-  } else {
-    offlineBar.classList.remove('show');
+  if (offlineBar) {
+    if (!navigator.onLine) offlineBar.classList.add('show');
+    else offlineBar.classList.remove('show');
   }
 }
-window.addEventListener('online', () => {
-  updateOnlineStatus();
-  showToast('✅ Back online!', 'green');
-});
+window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 updateOnlineStatus();
 
-// 4. INSTALL PROMPT (A2HS)
+// Install prompt
 let deferredPrompt = null;
 const installBanner = document.getElementById('installBanner');
 const installBtn = document.getElementById('installBtn');
@@ -1133,151 +1116,49 @@ const dismissBtn = document.getElementById('dismissBtn');
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault();
   deferredPrompt = e;
-  // Show install banner after 4 seconds
   const dismissed = localStorage.getItem('installDismissed');
-  if (!dismissed) {
+  if (!dismissed && installBanner) {
     setTimeout(() => { installBanner.classList.add('show'); }, 4000);
   }
 });
 
 if (installBtn) {
   installBtn.addEventListener('click', async () => {
-    installBanner.classList.remove('show');
+    if (installBanner) installBanner.classList.remove('show');
     if (deferredPrompt) {
       deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') showToast('🎉 App installed! Check your home screen.', 'green');
+      await deferredPrompt.userChoice;
       deferredPrompt = null;
     } else {
-      // iOS fallback
-      showToast('📱 On iPhone: tap the Share button → Add to Home Screen', 'gold', 5000);
+      alert('📱 On iPhone: tap Share → Add to Home Screen');
     }
   });
 }
 
 if (dismissBtn) {
   dismissBtn.addEventListener('click', () => {
-    installBanner.classList.remove('show');
+    if (installBanner) installBanner.classList.remove('show');
     localStorage.setItem('installDismissed', '1');
   });
 }
 
-// Hide install banner on successful install
-window.addEventListener('appinstalled', () => {
-  installBanner.classList.remove('show');
-  showToast('🎉 App installed successfully!', 'green');
-});
-
-// 5. TOAST NOTIFICATION
-function showToast(msg, type = 'green', duration = 3000) {
-  const existing = document.getElementById('pwa-toast');
-  if (existing) existing.remove();
-  const toast = document.createElement('div');
-  toast.id = 'pwa-toast';
-  const bg = type === 'green' ? '#27ae60' : type === 'gold' ? '#c9943a' : '#2d3436';
-  toast.style.cssText = `
-    position:fixed;top:70px;left:50%;transform:translateX(-50%);
-    background:${bg};color:white;padding:10px 20px;border-radius:24px;
-    font-family:Nunito,sans-serif;font-size:.82rem;font-weight:700;
-    z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.2);
-    animation:toast-in .3s ease;max-width:90vw;text-align:center;
-  `;
-  toast.textContent = msg;
-  const style = document.createElement('style');
-  style.textContent = '@keyframes toast-in{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}';
-  document.head.appendChild(style);
-  document.body.appendChild(toast);
-  setTimeout(() => toast.remove(), duration);
-}
-
-// 6. BOTTOM NAV ACTIVE STATE
-const tabs = document.querySelectorAll('.pwa-tab');
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
+// Bottom nav active state
+document.querySelectorAll('.pwa-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.pwa-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
   });
 });
 
-function scrollTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// 7. IOS INSTALL HINT (show after 10s on iOS if not standalone)
+// iOS install hint
 const isIos = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
 const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-if (isIos && !isStandalone) {
+if (isIos && !isStandalone && !localStorage.getItem('iosHintShown')) {
   setTimeout(() => {
-    if (!localStorage.getItem('iosHintShown')) {
-      showToast('📱 iPhone: tap Share → Add to Home Screen to install app!', 'gold', 6000);
-      localStorage.setItem('iosHintShown', '1');
-    }
+    alert('📱 Tap Share → Add to Home Screen to install this app!');
+    localStorage.setItem('iosHintShown', '1');
   }, 10000);
 }
-
-// 8. SHARE FEATURE — use Web Share API if available
-function nativeShare() {
-  if (navigator.share) {
-    navigator.share({
-      title: '🐑 Seasonal Premium Sheep Stall',
-      text: 'Premium Qurbani sheep & goats in Bangalore! 11 breeds. WhatsApp 8105122693. HBR Layout, Nagawara.',
-      url: window.location.href
-    }).catch(() => {});
-  } else {
-    copyLink();
-  }
-}
-
-// Override share button to use native share on mobile
-document.addEventListener('DOMContentLoaded', () => {
-  const shareBtns = document.querySelectorAll('.sb-copy');
-  shareBtns.forEach(btn => {
-    if (navigator.share) {
-      btn.textContent = '📤 Share';
-      btn.onclick = nativeShare;
-    }
-  });
-});
 </script>
-
-
-<!-- Firebase Integration for Live Animal Data -->
-<script type="module">
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-import { getFirestore, collection, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-/* ════════════════════════════════════
-   🔥 PASTE YOUR FIREBASE CONFIG HERE
-════════════════════════════════════ */
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-/* ════════════════════════════════════ */
-
-// Try Firebase first, fall back to local data
-try {
-  if (firebaseConfig.apiKey !== "YOUR_API_KEY") {
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    // Live listener — updates instantly when admin makes changes!
-    onSnapshot(collection(db, 'animals'), (snapshot) => {
-      const liveAnimals = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      if (liveAnimals.length > 0) {
-        window._liveAnimals = liveAnimals;
-        if (typeof renderAnimals === 'function') renderAnimals(liveAnimals);
-        console.log('🔥 Live data loaded:', liveAnimals.length, 'animals');
-      }
-    });
-  }
-} catch(e) {
-  console.log('Using default animal data');
-}
-</script>
-
 </body>
 </html>
