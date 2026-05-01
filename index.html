@@ -1,768 +1,211 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Seasonal Premium Sheep Stall – Qurbani Animals Bangalore</title>
-<meta name="description" content="Premium Qurbani sheep & goats in Bangalore. 11 breeds available. WhatsApp 8105122693">
-<meta name="theme-color" content="#1a6b3c">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fdf8ef;
-  color: #1a1a1a;
-}
-
-/* Header */
-.topbar {
-  background: #0d3d22;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 16px;
-  font-size: 14px;
-  flex-wrap: wrap;
-}
-
-.topbar a {
-  color: white;
-  text-decoration: none;
-  margin-left: 15px;
-}
-
-nav {
-  background: white;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #1a6b3c;
-}
-
-.nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-}
-
-.nav-links a:hover {
-  color: #1a6b3c;
-}
-
-.whatsapp-btn {
-  background: #25d366;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Hero */
-.hero {
-  background: linear-gradient(135deg, #0d3d22, #1a6b3c);
-  color: white;
-  text-align: center;
-  padding: 50px 20px;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  margin-bottom: 25px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  margin: 5px;
-  font-weight: bold;
-}
-
-.btn-wa {
-  background: #25d366;
-  color: white;
-}
-
-.btn-outline {
-  border: 2px solid white;
-  color: white;
-}
-
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 40px;
-}
-
-.stat {
-  text-align: center;
-}
-
-.stat-value {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #f5d08a;
-}
-
-/* Filters */
-.filters {
-  background: white;
-  padding: 15px;
-  position: sticky;
-  top: 60px;
-  z-index: 90;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.filter-select {
-  padding: 8px 15px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-}
-
-.breed-filters {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 10px 0;
-}
-
-.breed-pill {
-  background: #f0f0f0;
-  padding: 5px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: all 0.2s;
-}
-
-.breed-pill.active {
-  background: #1a6b3c;
-  color: white;
-}
-
-.result-count {
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-  margin: 10px;
-}
-
-/* Animals Grid */
-.animals-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-.animal-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-  cursor: pointer;
-}
-
-.animal-card:hover {
-  transform: translateY(-5px);
-}
-
-.card-img {
-  height: 200px;
-  background: #e0e0e0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
-}
-
-.card-content {
-  padding: 15px;
-}
-
-.card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #1a6b3c;
-  margin-bottom: 5px;
-}
-
-.card-subtitle {
-  font-size: 0.8rem;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.card-quote {
-  background: #f0f8f0;
-  padding: 8px;
-  border-radius: 8px;
-  font-size: 0.8rem;
-  font-style: italic;
-  margin-bottom: 10px;
-}
-
-.card-chips {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.chip {
-  background: #f0f0f0;
-  padding: 3px 10px;
-  border-radius: 15px;
-  font-size: 0.7rem;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
-}
-
-.price {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #1a6b3c;
-}
-
-.price small {
-  font-size: 0.7rem;
-  font-weight: normal;
-  color: #666;
-}
-
-.btn-inquire {
-  background: #25d366;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-size: 0.8rem;
-}
-
-.status {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: bold;
-}
-
-.status-available {
-  background: #27ae60;
-  color: white;
-}
-
-.status-limited {
-  background: #f39c12;
-  color: white;
-}
-
-.status-sold {
-  background: #e74c3c;
-  color: white;
-}
-
-/* Modal for detail view */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: white;
-  max-width: 500px;
-  width: 90%;
-  border-radius: 16px;
-  max-height: 85vh;
-  overflow-y: auto;
-  position: relative;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
-  cursor: pointer;
-  background: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.modal-img {
-  width: 100%;
-  height: 250px;
-  background: #e0e0e0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 5rem;
-}
-
-.modal-body {
-  padding: 20px;
-}
-
-.modal-title {
-  font-size: 1.5rem;
-  color: #1a6b3c;
-  margin-bottom: 5px;
-}
-
-.modal-desc {
-  margin: 15px 0;
-  line-height: 1.6;
-}
-
-/* Sections */
-.section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #0d3d22;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.why-card {
-  text-align: center;
-}
-
-.why-icon {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.location-map {
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.location-map iframe {
-  width: 100%;
-  height: 350px;
-  border: 0;
-}
-
-.footer {
-  background: #0d3d22;
-  color: white;
-  text-align: center;
-  padding: 30px;
-  margin-top: 40px;
-}
-
-.float-wa {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  text-decoration: none;
-  color: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  z-index: 99;
-}
-
-@media (max-width: 768px) {
-  .hero h1 { font-size: 1.8rem; }
-  .stats { gap: 20px; }
-  .nav-links { display: none; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Premium Sheep Stall</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
+        h1 { text-align: center; color: #1a6b3c; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .card { background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); cursor: pointer; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-3px); }
+        .card h3 { color: #1a6b3c; margin-bottom: 5px; }
+        .price { font-size: 1.3rem; font-weight: bold; color: #1a6b3c; margin: 10px 0; }
+        .status { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: bold; }
+        .avail { background: #27ae60; color: white; }
+        .limited { background: #f39c12; color: white; }
+        .sold { background: #e74c3c; color: white; }
+        .badge { background: #f0f0f0; padding: 2px 8px; border-radius: 12px; font-size: 11px; margin-right: 5px; display: inline-block; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; max-width: 500px; width: 90%; border-radius: 16px; padding: 20px; max-height: 80vh; overflow-y: auto; }
+        .close { float: right; font-size: 24px; cursor: pointer; }
+        .loading { text-align: center; padding: 40px; }
+        button { background: #25d366; color: white; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; margin-top: 10px; }
+        .filters { text-align: center; margin: 20px 0; }
+        select { padding: 8px 15px; margin: 0 5px; border-radius: 8px; border: 1px solid #ddd; }
+    </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div>🌙 Eid al-Adha Mubarak</div>
-  <div>
-    <a href="tel:+918105122693">📞 8105122693</a>
-    <a href="https://wa.me/918105122693">💬 WhatsApp</a>
-  </div>
-</div>
+<h1>🐑 Seasonal Premium Sheep Stall</h1>
+<p style="text-align:center">Eid al-Adha Mubarak 🌙</p>
 
-<nav>
-  <div class="logo">🐑 Seasonal Premium Sheep Stall</div>
-  <div class="nav-links">
-    <a href="#animals">Animals</a>
-    <a href="#location">Location</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <a href="https://wa.me/918105122693" class="whatsapp-btn">💬 WhatsApp</a>
-</nav>
-
-<section class="hero">
-  <h1>🐑 Seasonal Premium Sheep Stall</h1>
-  <p>Farm-fresh, vaccinated & vet-checked animals for Qurbani.<br>11 premium breeds available in Bangalore.</p>
-  <div>
-    <a href="https://wa.me/918105122693" class="btn btn-wa">💬 WhatsApp Inquiry</a>
-    <a href="#animals" class="btn btn-outline">🐑 View Animals</a>
-  </div>
-  <div class="stats">
-    <div class="stat"><div class="stat-value">11</div><div>Breeds</div></div>
-    <div class="stat"><div class="stat-value">100%</div><div>Vaccinated</div></div>
-    <div class="stat"><div class="stat-value">⭐4.9</div><div>Rating</div></div>
-  </div>
-</section>
-
-<div class="filters" id="filters">
-  <div class="breed-filters" id="breedFilter"></div>
-  <div>
-    <select id="priceFilter" class="filter-select" onchange="applyFilters()">
-      <option value="all">💰 All Prices</option>
-      <option value="0-15000">Under ₹15,000</option>
-      <option value="15000-30000">₹15,000–₹30,000</option>
-      <option value="30000-75000">₹30,000–₹75,000</option>
-      <option value="75000-999999">₹75,000+</option>
+<div class="filters">
+    <select id="priceFilter" onchange="applyFilters()">
+        <option value="all">💰 All Prices</option>
+        <option value="0-15000">Under ₹15,000</option>
+        <option value="15000-30000">₹15,000–₹30,000</option>
+        <option value="30000-75000">₹30,000–₹75,000</option>
+        <option value="75000-999999">₹75,000+</option>
     </select>
-    <select id="weightFilter" class="filter-select" onchange="applyFilters()">
-      <option value="all">⚖️ All Weights</option>
-      <option value="0-20">Under 20 kg</option>
-      <option value="20-35">20–35 kg</option>
-      <option value="35-50">35–50 kg</option>
-      <option value="50-200">50 kg+</option>
-    </select>
-  </div>
-</div>
-<div class="result-count" id="resultCount"></div>
-
-<section id="animals">
-  <div class="animals-grid" id="animalsGrid"></div>
-</section>
-
-<section class="section" style="background:#fff;">
-  <h2 class="section-title">Why Choose Us?</h2>
-  <div class="why-grid">
-    <div class="why-card"><div class="why-icon">⚖️</div><h4>Live Weight</h4><p>Verified fresh every morning</p></div>
-    <div class="why-card"><div class="why-icon">💉</div><h4>Vaccinated</h4><p>All vet-checked & vaccinated</p></div>
-    <div class="why-card"><div class="why-icon">🕌</div><h4>Sharia Certified</h4><p>Meets Qurbani requirements</p></div>
-    <div class="why-card"><div class="why-icon">🚚</div><h4>Home Delivery</h4><p>Available in Bangalore</p></div>
-  </div>
-</section>
-
-<section class="section" id="location">
-  <h2 class="section-title">📍 Visit Our Stall</h2>
-  <div class="location-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4!2d77.6270!3d13.0450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17e0b0000001%3A0x1!2sHBR+Layout+Nagawara+Bangalore+560045!5e0!3m2!1sen!2sin!4v1700000000000" loading="lazy"></iframe>
-  </div>
-  <div style="margin-top: 15px;">
-    <p>CS Narendra Tent, Nagawara Stage 1, HBR Layout, Bengaluru – 560045</p>
-    <p>📞 +91 81051 22693 | 🕐 6 AM – 9 PM Daily</p>
-    <a href="https://maps.app.goo.gl/3pNqT4ecTdUGHews5" target="_blank" style="color:#1a6b3c;">🗺️ Get Directions →</a>
-  </div>
-</section>
-
-<section class="section" id="contact" style="background:#fdf8ef;">
-  <h2 class="section-title">📬 Inquire Now</h2>
-  <p>We reply on WhatsApp within minutes!</p>
-  <div style="max-width: 400px; margin: 20px auto;">
-    <input type="text" id="inqName" placeholder="Your Name" style="width:100%; padding:10px; margin:5px 0; border-radius:8px; border:1px solid #ddd;">
-    <input type="tel" id="inqPhone" placeholder="Phone Number" style="width:100%; padding:10px; margin:5px 0; border-radius:8px; border:1px solid #ddd;">
-    <button onclick="sendInquiry()" style="background:#25d366; color:white; padding:10px; border:none; border-radius:25px; width:100%; font-weight:bold;">💬 Send via WhatsApp</button>
-  </div>
-</section>
-
-<div class="footer">
-  <div>🐑 Seasonal Premium Sheep Stall</div>
-  <p>HBR Layout, Nagawara, Bengaluru 560045 | 📞 8105122693</p>
-  <p>© 2025 Seasonal Premium Sheep Stall. Eid Mubarak! 🌙</p>
 </div>
 
-<a href="https://wa.me/918105122693" class="float-wa">💬</a>
+<div id="animalsGrid" class="grid">
+    <div class="loading">🔄 Loading animals...</div>
+</div>
 
-<!-- Modal for detail view -->
-<div id="animalModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <div class="modal-img" id="modalImg">🐑</div>
-    <div class="modal-body">
-      <h2 class="modal-title" id="modalTitle"></h2>
-      <div id="modalType" style="color:#666; margin-bottom:10px;"></div>
-      <div class="modal-desc" id="modalDesc"></div>
-      <div id="modalDetails"></div>
-      <a href="#" id="modalWaBtn" class="btn-wa-sm" style="display:inline-block; background:#25d366; color:white; padding:10px 20px; border-radius:25px; text-decoration:none; margin-top:15px;">💬 Inquire on WhatsApp</a>
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalType"></p>
+        <p id="modalPrice"></p>
+        <p id="modalDesc"></p>
+        <p id="modalDetails"></p>
+        <button id="modalWaBtn">💬 Inquire on WhatsApp</button>
     </div>
-  </div>
 </div>
 
 <script>
-// Firebase Config
+// Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyACduHPIrZv_rp01vh_EqnfazRk0oFRnJs",
-  authDomain: "seasonal-sheep-stall.firebaseapp.com",
-  projectId: "seasonal-sheep-stall",
-  storageBucket: "seasonal-sheep-stall.firebasestorage.app",
-  messagingSenderId: "923546588237",
-  appId: "1:923546588237:web:97779cbda902b4aa8b3804"
+    apiKey: "AIzaSyACduHPIrZv_rp01vh_EqnfazRk0oFRnJs",
+    authDomain: "seasonal-sheep-stall.firebaseapp.com",
+    projectId: "seasonal-sheep-stall",
+    storageBucket: "seasonal-sheep-stall.firebasestorage.app",
+    messagingSenderId: "923546588237",
+    appId: "1:923546588237:web:97779cbda902b4aa8b3804"
 };
 
 let allAnimals = [];
-let activeBreed = "All";
-let activePrice = "all";
-let activeWeight = "all";
+let currentFilter = "all";
 
-// Load Firebase and fetch data
-async function loadData() {
-  try {
-    // Load Firebase SDK
-    if (typeof firebase === 'undefined') {
-      await new Promise((resolve) => {
-        const script = document.createElement('script');
-        script.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js';
-        script.onload = () => {
-          const fsScript = document.createElement('script');
-          fsScript.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js';
-          fsScript.onload = resolve;
-          document.head.appendChild(fsScript);
-        };
-        document.head.appendChild(script);
-      });
-    }
+// Load Firebase SDK and fetch data
+async function init() {
+    console.log("🟢 Starting...");
     
+    // Load Firebase
+    await loadFirebase();
+    
+    // Initialize
     if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
+        firebase.initializeApp(firebaseConfig);
+        console.log("✅ Firebase initialized");
     }
     
     const db = firebase.firestore();
-    const snapshot = await db.collection("listings").get();
     
-    allAnimals = [];
-    snapshot.forEach(doc => {
-      const d = doc.data();
-      allAnimals.push({
-        id: doc.id,
-        name: d.breed,
-        type: d.type || "Sheep",
-        emoji: d.type === "Goat" ? "🐐" : "🐑",
-        quote: d.description ? d.description.substring(0, 80) + "..." : "Premium Qurbani animal",
-        weight: d.weight || "20-40 kg",
-        weightMin: parseInt(d.weight) || 20,
-        weightMax: (parseInt(d.weight) || 40) + 10,
-        age: d.age || "1-2 Years",
-        origin: d.origin || "Premium Breed",
-        price: d.price || 15000,
-        availability: d.availability || "Available",
-        description: d.description || "Premium Qurbani animal, healthy and vaccinated.",
-        imageUrl: d.imageUrl || null
-      });
+    try {
+        const snapshot = await db.collection("listings").get();
+        console.log(`📊 Got ${snapshot.size} animals from Firestore`);
+        
+        allAnimals = [];
+        snapshot.forEach(doc => {
+            const data = doc.data();
+            allAnimals.push({
+                id: doc.id,
+                name: data.breed,
+                type: data.type || "Sheep",
+                price: data.price || 10000,
+                weight: data.weight || "20-40 kg",
+                age: data.age || "1-2 Years",
+                origin: data.origin || "Premium",
+                availability: data.availability || "Available",
+                description: data.description || "Premium Qurbani animal"
+            });
+        });
+        
+        renderAnimals();
+        
+    } catch (error) {
+        console.error("❌ Firestore error:", error);
+        document.getElementById("animalsGrid").innerHTML = `<div style="text-align:center; grid-column:1/-1;">❌ Error loading data. ${error.message}</div>`;
+    }
+}
+
+function loadFirebase() {
+    return new Promise((resolve) => {
+        if (typeof firebase !== 'undefined') {
+            resolve();
+            return;
+        }
+        const script = document.createElement('script');
+        script.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js';
+        script.onload = () => {
+            const fsScript = document.createElement('script');
+            fsScript.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js';
+            fsScript.onload = resolve;
+            document.head.appendChild(fsScript);
+        };
+        document.head.appendChild(script);
     });
-    
-    console.log(`✅ Loaded ${allAnimals.length} animals from Firestore`);
-    renderBreedFilters();
-    renderAnimals();
-  } catch(e) {
-    console.error("Firebase error:", e);
-  }
-}
-
-function renderBreedFilters() {
-  const breeds = ["All", ...allAnimals.map(a => a.name)];
-  const container = document.getElementById('breedFilter');
-  if (!container) return;
-  container.innerHTML = breeds.map(b => `<div class="breed-pill${b === activeBreed ? ' active' : ''}" onclick="setBreed('${b.replace(/'/g, "\\'")}')">${b}</div>`).join('');
-}
-
-function setBreed(breed) {
-  activeBreed = breed;
-  renderBreedFilters();
-  renderAnimals();
 }
 
 function applyFilters() {
-  activePrice = document.getElementById('priceFilter')?.value || "all";
-  activeWeight = document.getElementById('weightFilter')?.value || "all";
-  renderAnimals();
+    currentFilter = document.getElementById('priceFilter').value;
+    renderAnimals();
 }
 
 function renderAnimals() {
-  let filtered = [...allAnimals];
-  
-  // Filter by breed
-  if (activeBreed !== "All") {
-    filtered = filtered.filter(a => a.name === activeBreed);
-  }
-  
-  // Filter by price
-  if (activePrice !== "all") {
-    const [min, max] = activePrice.split('-').map(Number);
-    filtered = filtered.filter(a => a.price >= min && a.price <= max);
-  }
-  
-  // Filter by weight
-  if (activeWeight !== "all") {
-    const [min, max] = activeWeight.split('-').map(Number);
-    filtered = filtered.filter(a => a.weightMin >= min && a.weightMax <= max);
-  }
-  
-  const grid = document.getElementById('animalsGrid');
-  const resultCount = document.getElementById('resultCount');
-  
-  if (!grid) return;
-  
-  if (filtered.length === 0) {
-    grid.innerHTML = '<div style="text-align:center; grid-column:1/-1; padding:40px;">😔 No animals match your filters</div>';
-    if (resultCount) resultCount.textContent = '0 animals found';
-    return;
-  }
-  
-  grid.innerHTML = filtered.map(animal => {
-    let statusClass = 'status-available';
-    if (animal.availability === 'Limited') statusClass = 'status-limited';
-    if (animal.availability === 'Sold') statusClass = 'status-sold';
+    let filtered = [...allAnimals];
     
-    return `
-      <div class="animal-card" onclick="showDetail('${animal.id}')">
-        <div class="card-img">${animal.emoji}</div>
-        <div class="card-content">
-          <div class="card-title">${animal.name}</div>
-          <div class="card-subtitle">${animal.type} · ${animal.origin}</div>
-          <div class="card-quote">"${animal.quote}"</div>
-          <div class="card-chips">
-            <span class="chip">⚖️ ${animal.weight} LIVE</span>
-            <span class="chip">📅 ${animal.age}</span>
-            <span class="chip">💉 Vaccinated</span>
-          </div>
-          <div class="card-footer">
-            <div class="price">₹${animal.price.toLocaleString()}<small> By live weight</small></div>
-            <div><span class="status ${statusClass}">${animal.availability === 'Sold' ? '✗ Sold' : (animal.availability === 'Limited' ? '⚡ Limited' : '✓ Available')}</span></div>
-          </div>
-        </div>
-      </div>
-    `;
-  }).join('');
-  
-  if (resultCount) resultCount.textContent = `Showing ${filtered.length} of ${allAnimals.length} animals`;
+    if (currentFilter !== "all") {
+        const [min, max] = currentFilter.split('-').map(Number);
+        filtered = filtered.filter(a => a.price >= min && a.price <= max);
+    }
+    
+    const grid = document.getElementById("animalsGrid");
+    
+    if (filtered.length === 0) {
+        grid.innerHTML = '<div style="text-align:center; grid-column:1/-1;">😔 No animals found</div>';
+        return;
+    }
+    
+    grid.innerHTML = filtered.map(animal => {
+        let statusClass = "avail";
+        let statusText = "✓ Available";
+        if (animal.availability === "Limited") {
+            statusClass = "limited";
+            statusText = "⚡ Limited";
+        } else if (animal.availability === "Sold") {
+            statusClass = "sold";
+            statusText = "✗ Sold";
+        }
+        
+        return `
+            <div class="card" onclick="showDetail('${animal.id}')">
+                <h3>${animal.name}</h3>
+                <p>${animal.type} · ${animal.origin}</p>
+                <div class="price">₹${animal.price.toLocaleString()}</div>
+                <div><span class="badge">⚖️ ${animal.weight}</span><span class="badge">📅 ${animal.age}</span><span class="badge">💉 Vaccinated</span></div>
+                <div><span class="status ${statusClass}">${statusText}</span></div>
+            </div>
+        `;
+    }).join('');
 }
 
-function showDetail(animalId) {
-  const animal = allAnimals.find(a => a.id === animalId);
-  if (!animal) return;
-  
-  document.getElementById('modalTitle').innerText = animal.name;
-  document.getElementById('modalType').innerHTML = `${animal.type} · ${animal.origin}`;
-  document.getElementById('modalDesc').innerHTML = animal.description || animal.quote;
-  document.getElementById('modalImg').innerHTML = animal.emoji;
-  
-  let detailsHtml = `
-    <p><strong>⚖️ Weight:</strong> ${animal.weight} (live)</p>
-    <p><strong>📅 Age:</strong> ${animal.age}</p>
-    <p><strong>💰 Price:</strong> ₹${animal.price.toLocaleString()} (by live weight)</p>
-    <p><strong>📦 Status:</strong> ${animal.availability}</p>
-    <p><strong>💉 Health:</strong> Vaccinated & vet-checked</p>
-  `;
-  document.getElementById('modalDetails').innerHTML = detailsHtml;
-  
-  const waMsg = encodeURIComponent(`Assalamualaikum! I'm interested in *${animal.name}* for Qurbani 🐑. Please share details.`);
-  document.getElementById('modalWaBtn').href = `https://wa.me/918105122693?text=${waMsg}`;
-  
-  document.getElementById('animalModal').style.display = 'flex';
+function showDetail(id) {
+    const animal = allAnimals.find(a => a.id === id);
+    if (!animal) return;
+    
+    document.getElementById("modalTitle").innerText = animal.name;
+    document.getElementById("modalType").innerHTML = `${animal.type} · ${animal.origin}`;
+    document.getElementById("modalPrice").innerHTML = `<strong>💰 Price:</strong> ₹${animal.price.toLocaleString()}`;
+    document.getElementById("modalDesc").innerHTML = animal.description;
+    document.getElementById("modalDetails").innerHTML = `
+        <strong>⚖️ Weight:</strong> ${animal.weight}<br>
+        <strong>📅 Age:</strong> ${animal.age}<br>
+        <strong>📦 Status:</strong> ${animal.availability}<br>
+        <strong>💉 Health:</strong> Vaccinated & vet-checked
+    `;
+    
+    const waMsg = encodeURIComponent(`Assalamualaikum! I'm interested in *${animal.name}* for Qurbani 🐑. Please share details.`);
+    document.getElementById("modalWaBtn").onclick = () => {
+        window.open(`https://wa.me/918105122693?text=${waMsg}`, '_blank');
+    };
+    
+    document.getElementById("modal").style.display = "flex";
 }
 
 function closeModal() {
-  document.getElementById('animalModal').style.display = 'none';
+    document.getElementById("modal").style.display = "none";
 }
 
-function sendInquiry() {
-  const name = document.getElementById('inqName')?.value.trim();
-  const phone = document.getElementById('inqPhone')?.value.trim();
-  if (!name || !phone) {
-    alert('Please enter your name and phone number');
-    return;
-  }
-  const msg = encodeURIComponent(`Assalamualaikum!\n\nName: ${name}\nPhone: ${phone}\n\nI saw your website and want to inquire about Qurbani animals. JazakAllah Khair! 🐑`);
-  window.open(`https://wa.me/918105122693?text=${msg}`, '_blank');
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-  const modal = document.getElementById('animalModal');
-  if (event.target === modal) {
-    closeModal();
-  }
-}
-
-// Load data on page load
-document.addEventListener('DOMContentLoaded', () => {
-  loadData();
-  
-  // Hide splash if any
-  const splash = document.getElementById('splash');
-  if (splash) setTimeout(() => splash.style.display = 'none', 1500);
-});
+// Start
+init();
 </script>
 </body>
 </html>
