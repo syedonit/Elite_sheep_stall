@@ -31,7 +31,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* [ALL YOUR EXISTING CSS STYLES - keep exactly as is] */
+  /* ===== YOUR EXISTING CSS STYLES GO HERE ===== */
+  /* (Copy all your CSS from your current file between the style tags) */
 :root{
   --green:#1a6b3c;--green2:#2d9e5f;--green3:#0d3d22;
   --gold:#c9943a;--gold2:#e8b45a;--gold3:#f5d08a;
@@ -536,8 +537,8 @@ footer .copy{margin-top:.8rem;font-size:.7rem;opacity:.4;}
 <!-- SPLASH SCREEN -->
 <div class="splash" id="splash">
   <div class="splash-icon">🐑</div>
-  <h2 style="font-family:serif;font-size:1.6rem;color:white;text-align:center;padding:0 2rem;">Seasonal Premium Sheep Stall</h2>
-  <p style="font-size:.82rem;color:rgba(255,255,255,.7);">Eid al-Adha Mubarak 🌙</p>
+  <h2>Seasonal Premium Sheep Stall</h2>
+  <p>Eid al-Adha Mubarak 🌙</p>
   <div class="splash-loader"><div class="splash-loader-bar"></div></div>
 </div>
 
@@ -562,31 +563,16 @@ footer .copy{margin-top:.8rem;font-size:.7rem;opacity:.4;}
 <!-- PWA BOTTOM NAV -->
 <div class="pwa-nav">
   <div class="pwa-nav-inner">
-    <a href="#" class="pwa-tab active" id="tab-home">
-      <span class="pwa-tab-icon">🏠</span>
-      <span class="pwa-tab-label">Home</span>
-    </a>
-    <a href="#animals" class="pwa-tab" id="tab-animals">
-      <span class="pwa-tab-icon">🐑</span>
-      <span class="pwa-tab-label">Animals</span>
-    </a>
-    <a href="https://wa.me/918105122693?text=Assalamualaikum!%20I%20want%20to%20inquire%20about%20Qurbani%20animals%20%F0%9F%90%91" target="_blank" class="pwa-tab wa-tab">
-      <span class="pwa-tab-icon">💬</span>
-      <span class="pwa-tab-label">WhatsApp</span>
-    </a>
-    <a href="https://maps.app.goo.gl/3pNqT4ecTdUGHews5" target="_blank" class="pwa-tab">
-      <span class="pwa-tab-icon">📍</span>
-      <span class="pwa-tab-label">Location</span>
-    </a>
-    <a href="#contact" class="pwa-tab" id="tab-contact">
-      <span class="pwa-tab-icon">📬</span>
-      <span class="pwa-tab-label">Inquiry</span>
-    </a>
+    <a href="#" class="pwa-tab active" id="tab-home">🏠<span class="pwa-tab-label">Home</span></a>
+    <a href="#animals" class="pwa-tab">🐑<span class="pwa-tab-label">Animals</span></a>
+    <a href="https://wa.me/918105122693?text=Assalamualaikum!%20I%20want%20to%20inquire%20about%20Qurbani%20animals%20%F0%9F%90%91" target="_blank" class="pwa-tab wa-tab">💬<span class="pwa-tab-label">WhatsApp</span></a>
+    <a href="https://maps.app.goo.gl/3pNqT4ecTdUGHews5" target="_blank" class="pwa-tab">📍<span class="pwa-tab-label">Location</span></a>
+    <a href="#contact" class="pwa-tab">📬<span class="pwa-tab-label">Inquiry</span></a>
   </div>
 </div>
 
 <!-- FLOAT WHATSAPP -->
-<a href="https://wa.me/918105122693?text=Assalamualaikum!%20I%20saw%20your%20website%20and%20want%20to%20inquire%20about%20animals%20for%20Qurbani%20%F0%9F%90%91" target="_blank" class="float-wa" aria-label="WhatsApp">💬</a>
+<a href="https://wa.me/918105122693?text=Assalamualaikum!%20I%20saw%20your%20website%20and%20want%20to%20inquire%20about%20animals%20for%20Qurbani%20%F0%9F%90%91" target="_blank" class="float-wa">💬</a>
 <div class="float-wa-tip">💬 Quick Inquiry</div>
 
 <!-- TOP BAR -->
@@ -638,27 +624,11 @@ footer .copy{margin-top:.8rem;font-size:.7rem;opacity:.4;}
   </div>
   <p class="video-upload-note">📹 AI videos will be added soon — your goats are speaking salam & inviting customers!</p>
   <div class="video-slots">
-    <div class="video-slot" onclick="waInquiry('Bannur Sheep')">
-      <div class="video-placeholder"><div class="sheep-bounce">🐑</div><div class="play-circle">▶</div></div>
-      <div class="bubble">"As-salamu alaykum! I'm a healthy Bannur sheep ready for your Qurbani. Come visit me at Seasonal Premium Sheep Stall in Nagawara, Bangalore! 🌿"</div>
-      <div class="video-meta"><h4>Bannur Sheep</h4><p>Tap to inquire on WhatsApp 💬</p></div>
-    </div>
-    <div class="video-slot" onclick="waInquiry('Boer Goat')">
-      <div class="video-placeholder"><div class="sheep-bounce">🐐</div><div class="play-circle">▶</div></div>
-      <div class="bubble">"Salam everyone! I'm a premium Boer goat — big, strong & Halal. Visit the stall at HBR Layout, Nagawara. May Allah accept your Qurbani! 🤲"</div>
-      <div class="video-meta"><h4>Boer Goat</h4><p>Tap to inquire on WhatsApp 💬</p></div>
-    </div>
-    <div class="video-slot" onclick="waInquiry('Jamunapari Goat')">
-      <div class="video-placeholder"><div class="sheep-bounce">🐏</div><div class="play-circle">▶</div></div>
-      <div class="bubble">"Assalamualaikum! I'm a Jamunapari goat from UP. Long ears, great meat. Come choose me from Seasonal Premium Sheep Stall! I'm waiting 😊"</div>
-      <div class="video-meta"><h4>Jamunapari Goat</h4><p>Tap to inquire on WhatsApp 💬</p></div>
-    </div>
+    <div class="video-slot" onclick="waInquiry('Bannur Sheep')"><div class="video-placeholder"><div class="sheep-bounce">🐑</div><div class="play-circle">▶</div></div><div class="bubble">"As-salamu alaykum! I'm a healthy Bannur sheep ready for your Qurbani. Come visit me at Seasonal Premium Sheep Stall in Nagawara, Bangalore! 🌿"</div><div class="video-meta"><h4>Bannur Sheep</h4><p>Tap to inquire on WhatsApp 💬</p></div></div>
+    <div class="video-slot" onclick="waInquiry('Boer Goat')"><div class="video-placeholder"><div class="sheep-bounce">🐐</div><div class="play-circle">▶</div></div><div class="bubble">"Salam everyone! I'm a premium Boer goat — big, strong & Halal. Visit the stall at HBR Layout, Nagawara. May Allah accept your Qurbani! 🤲"</div><div class="video-meta"><h4>Boer Goat</h4><p>Tap to inquire on WhatsApp 💬</p></div></div>
+    <div class="video-slot" onclick="waInquiry('Jamunapari Goat')"><div class="video-placeholder"><div class="sheep-bounce">🐏</div><div class="play-circle">▶</div></div><div class="bubble">"Assalamualaikum! I'm a Jamunapari goat from UP. Long ears, great meat. Come choose me from Seasonal Premium Sheep Stall! I'm waiting 😊"</div><div class="video-meta"><h4>Jamunapari Goat</h4><p>Tap to inquire on WhatsApp 💬</p></div></div>
   </div>
-  <div class="video-upload-box" onclick="waInquiry('video upload')">
-    <div class="icon">🎥</div>
-    <strong style="color:rgba(255,255,255,.75)">Upload AI Videos Here</strong><br>
-    Contact us on WhatsApp to upload your goat videos → they'll appear right here!
-  </div>
+  <div class="video-upload-box" onclick="waInquiry('video upload')"><div class="icon">🎥</div><strong>Upload AI Videos Here</strong><br>Contact us on WhatsApp to upload your goat videos → they'll appear right here!</div>
 </section>
 
 <!-- FILTERS -->
@@ -692,7 +662,7 @@ footer .copy{margin-top:.8rem;font-size:.7rem;opacity:.4;}
   </div>
 </div>
 
-<!-- ANIMALS -->
+<!-- ANIMALS GRID -->
 <section class="animals-sec sec">
   <div class="sec-title">
     <h2>🐑 Choose Your Animal</h2>
@@ -704,10 +674,7 @@ footer .copy{margin-top:.8rem;font-size:.7rem;opacity:.4;}
 
 <!-- WHY US -->
 <section class="sec" style="background:var(--cream)">
-  <div class="sec-title">
-    <h2>Why Choose Us?</h2>
-    <div class="divider"></div>
-  </div>
+  <div class="sec-title"><h2>Why Choose Us?</h2><div class="divider"></div></div>
   <div class="why-grid">
     <div class="why-card"><div class="why-icon">⚖️</div><h4>Live Weight</h4><p>Verified fresh every morning, shown on each listing</p></div>
     <div class="why-card"><div class="why-icon">💉</div><h4>Vaccinated</h4><p>All animals are vet-checked & vaccinated</p></div>
@@ -720,231 +687,140 @@ footer .copy{margin-top:.8rem;font-size:.7rem;opacity:.4;}
 
 <!-- LOCATION -->
 <section class="location-sec sec" id="location">
-  <div class="sec-title">
-    <h2>📍 Visit Our Stall</h2>
-    <p>Click the map or tap Get Directions to navigate straight to us</p>
-    <div class="divider"></div>
-  </div>
+  <div class="sec-title"><h2>📍 Visit Our Stall</h2><p>Click the map or tap Get Directions to navigate straight to us</p><div class="divider"></div></div>
   <div class="map-wrap">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4!2d77.6270!3d13.0450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17e0b0000001%3A0x1!2sHBR+Layout+Nagawara+Bangalore+560045!5e0!3m2!1sen!2sin!4v1700000000000"
-      loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    <div class="map-footer">
-      <div>
-        <h4>🐑 Seasonal Premium Sheep Stall</h4>
-        <p>CS Narendra Tent, Nagawara Stage 1<br>HBR Layout, Bengaluru – 560045<br>📞 +91 81051 22693 &nbsp;|&nbsp; 🕐 6 AM – 9 PM Daily</p>
-      </div>
-      <a href="https://maps.app.goo.gl/3pNqT4ecTdUGHews5" target="_blank" class="btn-dir">🗺️ Get Directions</a>
-    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4!2d77.6270!3d13.0450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17e0b0000001%3A0x1!2sHBR+Layout+Nagawara+Bangalore+560045!5e0!3m2!1sen!2sin!4v1700000000000" loading="lazy" allowfullscreen></iframe>
+    <div class="map-footer"><div><h4>🐑 Seasonal Premium Sheep Stall</h4><p>CS Narendra Tent, Nagawara Stage 1<br>HBR Layout, Bengaluru – 560045<br>📞 +91 81051 22693 &nbsp;|&nbsp; 🕐 6 AM – 9 PM Daily</p></div><a href="https://maps.app.goo.gl/3pNqT4ecTdUGHews5" target="_blank" class="btn-dir">🗺️ Get Directions</a></div>
   </div>
 </section>
 
 <!-- CONTACT / INQUIRY -->
 <section class="inquiry-sec sec" id="contact">
-  <div class="sec-title">
-    <h2>📬 Inquire Now</h2>
-    <p>We reply on WhatsApp within minutes!</p>
-    <div class="divider"></div>
-  </div>
+  <div class="sec-title"><h2>📬 Inquire Now</h2><p>We reply on WhatsApp within minutes!</p><div class="divider"></div></div>
   <div class="inquiry-grid">
-    <div class="inq-card">
-      <h3>Send an Inquiry</h3>
-      <p>Fill below & we'll reach you on WhatsApp instantly 📲</p>
-      <div class="inq-form">
-        <input class="inq-input" id="inqName" type="text" placeholder="Your Name *">
-        <input class="inq-input" id="inqPhone" type="tel" placeholder="Phone / WhatsApp *">
-        <select class="inq-select" id="inqBreed">
-          <option value="">Breed Interested In (optional)</option>
-          <option>Native Goat (Desi)</option>
-          <option>Bannur Sheep</option>
-          <option>Andhra Sheep</option>
-          <option>Amingad Sheep</option>
-          <option>Beetal Sheep</option>
-          <option>Sirohi Sheep</option>
-          <option>Chegu Goat</option>
-          <option>Barbari Goat</option>
-          <option>Buck (Male Goat)</option>
-          <option>Jamunapari Goat</option>
-          <option>Boer Goat</option>
-          <option>Not sure yet</option>
-        </select>
-        <textarea class="inq-input" id="inqMsg" rows="3" placeholder="Message (optional)"></textarea>
-        <button class="inq-submit" onclick="sendInquiry()">💬 Send via WhatsApp</button>
-      </div>
-    </div>
-    <div class="inq-card">
-      <h3>Contact Details</h3>
-      <p>Reach us directly via WhatsApp, call or visit.</p>
-      <div class="contact-links">
-        <a href="https://wa.me/918105122693?text=Assalamualaikum!%20I%20want%20to%20inquire%20about%20animals%20%F0%9F%90%91" target="_blank" class="contact-link">
-          <span class="cl-icon">💬</span>
-          <div class="cl-info"><small>WhatsApp</small><span>8105122693 — Instant Reply</span></div>
-        </a>
-        <a href="tel:+918105122693" class="contact-link">
-          <span class="cl-icon">📞</span>
-          <div class="cl-info"><small>Call Now</small><span>+91 81051 22693</span></div>
-        </a>
-        <a href="https://maps.app.goo.gl/3pNqT4ecTdUGHews5" target="_blank" class="contact-link">
-          <span class="cl-icon">📍</span>
-          <div class="cl-info"><small>Visit Our Stall</small><span>HBR Layout, Nagawara, Bangalore 560045</span></div>
-        </a>
-        <div class="contact-link">
-          <span class="cl-icon">🕐</span>
-          <div class="cl-info"><small>Open Hours</small><span>6:00 AM – 9:00 PM, All Days</span></div>
-        </div>
-      </div>
-    </div>
+    <div class="inq-card"><h3>Send an Inquiry</h3><p>Fill below & we'll reach you on WhatsApp instantly 📲</p><div class="inq-form"><input class="inq-input" id="inqName" placeholder="Your Name *"><input class="inq-input" id="inqPhone" placeholder="Phone / WhatsApp *"><select class="inq-select" id="inqBreed"><option value="">Breed Interested In (optional)</option><option>Native Goat (Desi)</option><option>Bannur Sheep</option><option>Andhra Sheep</option><option>Amingad Sheep</option><option>Beetal Sheep</option><option>Sirohi Sheep</option><option>Chegu Goat</option><option>Barbari Goat</option><option>Buck (Male Goat)</option><option>Jamunapari Goat</option><option>Boer Goat</option></select><textarea class="inq-input" id="inqMsg" rows="3" placeholder="Message (optional)"></textarea><button class="inq-submit" onclick="sendInquiry()">💬 Send via WhatsApp</button></div></div>
+    <div class="inq-card"><h3>Contact Details</h3><p>Reach us directly via WhatsApp, call or visit.</p><div class="contact-links"><a href="https://wa.me/918105122693?text=Assalamualaikum!%20I%20want%20to%20inquire%20about%20animals%20%F0%9F%90%91" target="_blank" class="contact-link"><span class="cl-icon">💬</span><div class="cl-info"><small>WhatsApp</small><span>8105122693 — Instant Reply</span></div></a><a href="tel:+918105122693" class="contact-link"><span class="cl-icon">📞</span><div class="cl-info"><small>Call Now</small><span>+91 81051 22693</span></div></a><a href="https://maps.app.goo.gl/3pNqT4ecTdUGHews5" target="_blank" class="contact-link"><span class="cl-icon">📍</span><div class="cl-info"><small>Visit Our Stall</small><span>HBR Layout, Nagawara, Bangalore 560045</span></div></a><div class="contact-link"><span class="cl-icon">🕐</span><div class="cl-info"><small>Open Hours</small><span>6:00 AM – 9:00 PM, All Days</span></div></div></div></div>
   </div>
 </section>
 
 <!-- REVIEWS -->
 <section class="reviews-sec sec" id="reviews">
-  <div class="sec-title">
-    <h2>⭐ What Customers Say</h2>
-    <p>Trusted by hundreds of Bangalore families every Eid</p>
-    <div class="divider"></div>
-  </div>
+  <div class="sec-title"><h2>⭐ What Customers Say</h2><p>Trusted by hundreds of Bangalore families every Eid</p><div class="divider"></div></div>
   <div class="reviews-grid">
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <div class="review-text">"Mashallah, bought a Bannur sheep last year. Very healthy, good weight, honest price. Will buy again this Eid inshallah!"</div>
-      <div class="reviewer">Abdul Rahman</div>
-      <div class="reviewer-loc">📍 Kalyan Nagar, Bangalore</div>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <div class="review-text">"Alhamdulillah, great experience! Animals were well-fed and healthy. The Beetal sheep was perfect for our Qurbani."</div>
-      <div class="reviewer">Mohammed Farooq</div>
-      <div class="reviewer-loc">📍 Banaswadi, Bangalore</div>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <div class="review-text">"Very trustworthy seller. Live weight was measured transparently. Got Andhra sheep at a fair price. Highly recommend!"</div>
-      <div class="reviewer">Siddiqui Imran</div>
-      <div class="reviewer-loc">📍 HBR Layout, Bangalore</div>
-    </div>
+    <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">"Mashallah, bought a Bannur sheep last year. Very healthy, good weight, honest price. Will buy again this Eid inshallah!"</div><div class="reviewer">Abdul Rahman</div><div class="reviewer-loc">📍 Kalyan Nagar, Bangalore</div></div>
+    <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">"Alhamdulillah, great experience! Animals were well-fed and healthy. The Beetal sheep was perfect for our Qurbani."</div><div class="reviewer">Mohammed Farooq</div><div class="reviewer-loc">📍 Banaswadi, Bangalore</div></div>
+    <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">"Very trustworthy seller. Live weight was measured transparently. Got Andhra sheep at a fair price. Highly recommend!"</div><div class="reviewer">Siddiqui Imran</div><div class="reviewer-loc">📍 HBR Layout, Bangalore</div></div>
   </div>
 </section>
 
 <!-- SHARE -->
 <section class="share-sec sec">
-  <div class="sec-title">
-    <h2>🌙 Share With Friends & Family</h2>
-    <p>Know someone looking for Qurbani animals? Share on WhatsApp & Instagram Story!</p>
-    <div class="divider"></div>
-  </div>
-  <div class="share-btns">
-    <a id="shareWaBtn" href="#" target="_blank" class="share-btn sb-wa">📱 Share on WhatsApp</a>
-    <button class="share-btn sb-copy" onclick="copyLink()">🔗 Copy Website Link</button>
-  </div>
+  <div class="sec-title"><h2>🌙 Share With Friends & Family</h2><p>Know someone looking for Qurbani animals? Share on WhatsApp & Instagram Story!</p><div class="divider"></div></div>
+  <div class="share-btns"><a id="shareWaBtn" href="#" target="_blank" class="share-btn sb-wa">📱 Share on WhatsApp</a><button class="share-btn sb-copy" onclick="copyLink()">🔗 Copy Website Link</button></div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="foot-brand">🐑 Seasonal Premium Sheep Stall</div>
-  <p>CS Narendra Tent, Nagawara Stage 1, HBR Layout, Bengaluru 560045<br>
-  📞 +91 81051 22693 &nbsp;|&nbsp; Open 6 AM – 9 PM All Days</p>
+  <p>CS Narendra Tent, Nagawara Stage 1, HBR Layout, Bengaluru 560045<br>📞 +91 81051 22693 &nbsp;|&nbsp; Open 6 AM – 9 PM All Days</p>
   <div class="dua">اللَّهُمَّ تَقَبَّلْ مِنَّا</div>
   <p style="font-size:.75rem;font-style:italic">Allahumma taqabbal minna — O Allah, accept from us 🤲</p>
   <div class="copy">© 2025 Seasonal Premium Sheep Stall, Bangalore. Eid Mubarak! 🌙</div>
 </footer>
 
 <script>
-/* ── FIREBASE CONFIG (YOUR ACTUAL CONFIG) ── */
+// FIREBASE CONFIG
 const firebaseConfig = {
   apiKey: "AIzaSyACduHPIrZv_rp01vh_EqnfazRk0oFRnJs",
   authDomain: "seasonal-sheep-stall.firebaseapp.com",
   projectId: "seasonal-sheep-stall",
   storageBucket: "seasonal-sheep-stall.firebasestorage.app",
   messagingSenderId: "923546588237",
-  appId: "1:923546588237:web:97779cbda902b4aa8b3804",
-  measurementId: "G-4V1S4SXD6L"
+  appId: "1:923546588237:web:97779cbda902b4aa8b3804"
 };
 
-/* ── FALLBACK DATA (in case Firebase fails) ── */
-const fallbackAnimals = [
-  { name:"Native Goat (Desi)", type:"Goat", emoji:"🐐", quote:"I'm your local Desi goat — healthy, strong & affordable.", weightMin:15, weightMax:30, weightLabel:"15–30 kg", age:"1–2 Years", origin:"Local Breed", vaccinated:true, priceMin:10000, priceLabel:"₹10,000", priceNote:"Starting price", status:"avail", statusLabel:"✓ Available", badge:"💰 Budget Friendly", desc:"Local Indian breed, well-adapted to the Bangalore climate." },
-  { name:"Bannur Sheep", type:"Sheep", emoji:"🐑", quote:"I'm from Karnataka! Famous for soft meat & strong body.", weightMin:25, weightMax:40, weightLabel:"25–40 kg", age:"1–2 Years", origin:"Karnataka", vaccinated:true, priceMin:15000, priceLabel:"₹15,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"🏷️ Best Seller", desc:"Native Karnataka breed — excellent meat quality." },
-  { name:"Andhra Sheep", type:"Sheep", emoji:"🐏", quote:"Baaa! I'm from Andhra Pradesh — big, healthy & tasty.", weightMin:30, weightMax:50, weightLabel:"30–50 kg", age:"1–3 Years", origin:"Andhra Pradesh", vaccinated:true, priceMin:18000, priceLabel:"₹18,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"🏋️ Heavy Weight", desc:"Popular South Indian breed with heavy body weight." },
-  { name:"Amingad Sheep", type:"Sheep", emoji:"🐑", quote:"I'm an Amingad sheep from North Karnataka — premium quality!", weightMin:30, weightMax:50, weightLabel:"30–50 kg", age:"1–2 Years", origin:"North Karnataka", vaccinated:true, priceMin:25000, priceLabel:"₹25,000", priceNote:"Starting price", status:"avail", statusLabel:"✓ Available", badge:"⭐ Premium", desc:"Famous North Karnataka breed for exceptional meat quality." },
-  { name:"Beetal Sheep", type:"Sheep", emoji:"🐑", quote:"I'm from Punjab — tall, strong & premium quality.", weightMin:35, weightMax:55, weightLabel:"35–55 kg", age:"1–2 Years", origin:"Punjab", vaccinated:true, priceMin:20000, priceLabel:"₹20,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"⭐ Premium", desc:"Premium North Indian breed from Punjab." },
-  { name:"Sirohi Sheep", type:"Sheep", emoji:"🐑", quote:"From Rajasthan! Hardy, healthy & great meat quality.", weightMin:25, weightMax:45, weightLabel:"25–45 kg", age:"1–2 Years", origin:"Rajasthan", vaccinated:true, priceMin:16000, priceLabel:"₹16,000", priceNote:"By live weight", status:"limited", statusLabel:"⚡ Limited", badge:"⚡ Limited Stock", desc:"Hardy Rajasthani breed." },
-  { name:"Chegu Goat", type:"Goat", emoji:"🐐", quote:"From the mountains of Himachal! Pure, strong & healthy.", weightMin:20, weightMax:35, weightLabel:"20–35 kg", age:"1–2 Years", origin:"Himachal Pradesh", vaccinated:true, priceMin:14000, priceLabel:"₹14,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"🏔️ Mountain Breed", desc:"Mountain breed from Himachal Pradesh." },
-  { name:"Barbari Goat", type:"Goat", emoji:"🐐", quote:"Small but very healthy & beautiful! Perfect for Qurbani.", weightMin:15, weightMax:30, weightLabel:"15–30 kg", age:"1–2 Years", origin:"Uttar Pradesh", vaccinated:true, priceMin:10000, priceLabel:"₹10,000", priceNote:"Budget-friendly", status:"avail", statusLabel:"✓ Available", badge:"💰 Budget Friendly", desc:"Compact, beautiful breed from UP." },
-  { name:"Buck (Male Goat)", type:"Goat", emoji:"🐐", quote:"Strong, big & healthy! Great horns, great body!", weightMin:20, weightMax:35, weightLabel:"20–35 kg", age:"1–2 Years", origin:"Male Goat", vaccinated:true, priceMin:12000, priceLabel:"₹12,000", priceNote:"By live weight", status:"avail", statusLabel:"✓ Available", badge:"💪 Strong Build", desc:"Healthy male goat with strong build." },
-  { name:"Jamunapari Goat", type:"Goat", emoji:"🐐", quote:"Assalamualaikum! I'm a Jamunapari from UP — long ears, regal look!", weightMin:35, weightMax:60, weightLabel:"35–60 kg", age:"1–2 Years", origin:"Uttar Pradesh", vaccinated:true, priceMin:30000, priceLabel:"₹30,000", priceNote:"Starting price", status:"avail", statusLabel:"✓ Available", badge:"👑 Majestic Breed", desc:"India's tallest goat breed." },
-  { name:"Boer Goat", type:"Goat", emoji:"🐐", quote:"Salam! I'm a premium Boer goat — imported breed, big body!", weightMin:50, weightMax:90, weightLabel:"50–90 kg", age:"1–3 Years", origin:"South Africa", vaccinated:true, priceMin:75000, priceLabel:"₹75,000", priceNote:"Premium import", status:"limited", statusLabel:"⚡ Limited", badge:"💎 Exotic Premium", desc:"World-renowned meat breed." }
-];
-
-let currentAnimals = [...fallbackAnimals];
+let currentAnimals = [];
 let activeBreed = "All";
 let activePriceRange = "all";
 let activeWeightRange = "all";
 
-/* ── RENDER ANIMALS ── */
+// Load Firebase and fetch data
+async function loadFirebaseData() {
+  try {
+    // Load Firebase SDK
+    await new Promise((resolve) => {
+      if (typeof firebase !== 'undefined') { resolve(); return; }
+      const script = document.createElement('script');
+      script.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js';
+      script.onload = () => {
+        const fsScript = document.createElement('script');
+        fsScript.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js';
+        fsScript.onload = resolve;
+        document.head.appendChild(fsScript);
+      };
+      document.head.appendChild(script);
+    });
+    
+    if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const snapshot = await db.collection("listings").get();
+    
+    currentAnimals = [];
+    snapshot.forEach(doc => {
+      const data = doc.data();
+      currentAnimals.push({
+        name: data.breed,
+        type: data.type || "Sheep",
+        emoji: data.type === "Goat" ? "🐐" : "🐑",
+        quote: `"${data.description?.substring(0, 80)}..."` || "Premium Qurbani animal!",
+        weightMin: parseInt(data.weight) || 20,
+        weightMax: (parseInt(data.weight) || 40) + 10,
+        weightLabel: data.weight || "20-40 kg",
+        age: data.age || "1-2 Years",
+        origin: data.origin || "Premium Breed",
+        priceMin: data.price || 15000,
+        priceLabel: `₹${(data.price || 15000).toLocaleString()}`,
+        priceNote: data.availability === "Sold" ? "Sold Out" : "By live weight",
+        status: data.availability === "Sold" ? "sold" : (data.availability === "Limited" ? "limited" : "avail"),
+        statusLabel: data.availability === "Sold" ? "✗ Sold" : (data.availability === "Limited" ? "⚡ Limited" : "✓ Available"),
+        badge: data.availability === "Sold" ? "❌ Sold Out" : (data.availability === "Limited" ? "⚡ Limited Stock" : "✓ Available"),
+        desc: data.description || "Premium Qurbani animal, healthy and vaccinated."
+      });
+    });
+    
+    console.log(`✅ Loaded ${currentAnimals.length} animals from Firestore`);
+    renderAnimals();
+    buildBreedPills();
+  } catch(e) {
+    console.log("Firestore error:", e);
+  }
+}
+
 function renderAnimals() {
   const grid = document.getElementById('animalsGrid');
   if (!grid) return;
-  
   grid.innerHTML = currentAnimals.map((a, i) => `
     <div class="animal-card" data-index="${i}">
-      <div class="card-img-wrap">
-        <div class="card-emoji-thumb">${a.emoji}</div>
-        <div class="card-ai-badge">📸 AI Photo</div>
-        <div class="card-status status-${a.status}">${a.statusLabel}</div>
-      </div>
-      <div class="card-body">
-        <div class="card-name">${a.name}</div>
-        <div class="card-type">${a.type} · ${a.origin}</div>
-        <div class="card-says">"${a.quote}"</div>
-        <div class="card-chips">
-          <div class="chip chip-weight">⚖️ ${a.weightLabel} <span style="font-size:.6rem;opacity:.65">LIVE</span></div>
-          <div class="chip">📅 ${a.age}</div>
-          <div class="chip">💉 Vaccinated</div>
-          ${a.badge ? `<div class="chip" style="background:#fdf3e0;border-color:var(--gold);color:var(--gold)">${a.badge}</div>` : ''}
-        </div>
-        <div class="card-desc">${a.desc}</div>
-        <div class="card-footer">
-          <div class="card-price">${a.priceLabel}<small>${a.priceNote}</small></div>
-          <div class="card-btns">
-            <a href="${buildWa(a.name)}" target="_blank" class="btn-wa-sm">💬 Inquire</a>
-            <a href="tel:+918105122693" class="btn-call-sm">📞</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  `).join('') + `<div id="noResults" class="no-results" style="display:none">😔 No animals match your filters. <a href="#" onclick="resetFilters()" style="color:var(--green)">Reset filters</a></div>`;
-  
+      <div class="card-img-wrap"><div class="card-emoji-thumb">${a.emoji}</div><div class="card-ai-badge">📸 AI Photo</div><div class="card-status status-${a.status}">${a.statusLabel}</div></div>
+      <div class="card-body"><div class="card-name">${a.name}</div><div class="card-type">${a.type} · ${a.origin}</div><div class="card-says">${a.quote}</div>
+      <div class="card-chips"><div class="chip chip-weight">⚖️ ${a.weightLabel} <span style="font-size:.6rem">LIVE</span></div><div class="chip">📅 ${a.age}</div><div class="chip">💉 Vaccinated</div>${a.badge ? `<div class="chip">${a.badge}</div>` : ''}</div>
+      <div class="card-desc">${a.desc}</div><div class="card-footer"><div class="card-price">${a.priceLabel}<small>${a.priceNote}</small></div>
+      <div class="card-btns"><a href="${buildWa(a.name)}" target="_blank" class="btn-wa-sm">💬 Inquire</a><a href="tel:+918105122693" class="btn-call-sm">📞</a></div></div></div>
+    </div>`).join('') + `<div id="noResults" class="no-results" style="display:none">😔 No animals match your filters. <a href="#" onclick="resetFilters()" style="color:var(--green)">Reset filters</a></div>`;
   applyFilters();
 }
 
-function buildWa(breed) {
-  const msg = encodeURIComponent(`Assalamualaikum! I visited your website and I'm interested in *${breed}* for Qurbani 🐑. Please share the latest availability and price. JazakAllah Khair!`);
-  return `https://wa.me/918105122693?text=${msg}`;
-}
-
-function waInquiry(breed) {
-  window.open(buildWa(breed), '_blank');
-}
+function buildWa(breed) { return `https://wa.me/918105122693?text=${encodeURIComponent(`Assalamualaikum! I'm interested in *${breed}* for Qurbani 🐑.`)}`; }
+function waInquiry(breed) { window.open(buildWa(breed), '_blank'); }
 
 function buildBreedPills() {
-  const breeds = ["All", ...currentAnimals.map(a => a.name)];
   const container = document.getElementById('breedFilter');
   if (!container) return;
-  container.innerHTML = breeds.map(b => `
-    <div class="breed-pill${b==="All"?" active":""}" onclick="setBreed('${b.replace(/'/g, "\\'")}')">${b}</div>
-  `).join('');
+  const breeds = ["All", ...currentAnimals.map(a => a.name)];
+  container.innerHTML = breeds.map(b => `<div class="breed-pill${b==="All"?" active":""}" onclick="setBreed('${b.replace(/'/g, "\\'")}')">${b}</div>`).join('');
 }
 
-function setBreed(breed) {
-  activeBreed = breed;
-  document.querySelectorAll('.breed-pill').forEach(p => {
-    p.classList.toggle('active', p.textContent === breed);
-  });
-  applyFilters();
-}
-
+function setBreed(breed) { activeBreed = breed; document.querySelectorAll('.breed-pill').forEach(p => p.classList.toggle('active', p.textContent === breed)); applyFilters(); }
 function applyFilters() {
   activePriceRange = document.getElementById('priceFilter')?.value || "all";
   activeWeightRange = document.getElementById('weightFilter')?.value || "all";
@@ -954,211 +830,40 @@ function applyFilters() {
     if (!a) return;
     let show = true;
     if (activeBreed !== "All" && a.name !== activeBreed) show = false;
-    if (activePriceRange !== "all") {
-      const [pMin, pMax] = activePriceRange.split('-').map(Number);
-      if (a.priceMin < pMin || a.priceMin > pMax) show = false;
-    }
-    if (activeWeightRange !== "all") {
-      const [wMin, wMax] = activeWeightRange.split('-').map(Number);
-      if (a.weightMax < wMin || a.weightMin > wMax) show = false;
-    }
+    if (activePriceRange !== "all") { const [pMin, pMax] = activePriceRange.split('-').map(Number); if (a.priceMin < pMin || a.priceMin > pMax) show = false; }
+    if (activeWeightRange !== "all") { const [wMin, wMax] = activeWeightRange.split('-').map(Number); if (a.weightMax < wMin || a.weightMin > wMax) show = false; }
     card.classList.toggle('hidden', !show);
     if (show) shown++;
   });
-  const resultCount = document.getElementById('resultCount');
-  if (resultCount) {
-    resultCount.textContent = shown === currentAnimals.length ? `All ${shown} animals` : `${shown} animal${shown!==1?'s':''} found`;
-  }
-  const noRes = document.getElementById('noResults');
-  if (noRes) noRes.style.display = shown === 0 ? 'block' : 'none';
+  const rc = document.getElementById('resultCount');
+  if (rc) rc.textContent = shown === currentAnimals.length ? `All ${shown} animals` : `${shown} animal${shown!==1?'s':''} found`;
+  const nr = document.getElementById('noResults');
+  if (nr) nr.style.display = shown === 0 ? 'block' : 'none';
 }
 
-function resetFilters() {
-  setBreed('All');
-  const priceFilter = document.getElementById('priceFilter');
-  const weightFilter = document.getElementById('weightFilter');
-  if (priceFilter) priceFilter.value = 'all';
-  if (weightFilter) weightFilter.value = 'all';
-  applyFilters();
-}
+function resetFilters() { setBreed('All'); document.getElementById('priceFilter').value = 'all'; document.getElementById('weightFilter').value = 'all'; applyFilters(); }
+function sendInquiry() { const name = document.getElementById('inqName')?.value.trim(); const phone = document.getElementById('inqPhone')?.value.trim(); const breed = document.getElementById('inqBreed')?.value; const msg = document.getElementById('inqMsg')?.value.trim(); if (!name || !phone) { alert('Please enter your name and phone number.'); return; } window.open(`https://wa.me/918105122693?text=${encodeURIComponent(`Assalamualaikum!\n\nName: ${name}\nPhone: ${phone}${breed?'\nBreed: '+breed:''}${msg?'\nMessage: '+msg:''}\n\nI saw your website. JazakAllah Khair! 🐑`)}`, '_blank'); }
+function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => { const btn = document.querySelector('.sb-copy'); if(btn) { btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = '🔗 Copy Website Link', 2500); } }); }
 
-function sendInquiry() {
-  const name = document.getElementById('inqName')?.value.trim();
-  const phone = document.getElementById('inqPhone')?.value.trim();
-  const breed = document.getElementById('inqBreed')?.value;
-  const msg = document.getElementById('inqMsg')?.value.trim();
-  if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
-  const text = encodeURIComponent(`Assalamualaikum!\n\nName: ${name}\nPhone: ${phone}${breed?'\nBreed: '+breed:''}${msg?'\nMessage: '+msg:''}\n\nI saw your Seasonal Premium Sheep Stall website. JazakAllah Khair! 🐑`);
-  window.open(`https://wa.me/918105122693?text=${text}`, '_blank');
-}
-
-function copyLink() {
-  navigator.clipboard.writeText(window.location.href).then(() => {
-    const btn = document.querySelector('.sb-copy');
-    if (btn) {
-      btn.textContent = '✅ Copied!';
-      setTimeout(() => { btn.textContent = '🔗 Copy Website Link'; }, 2500);
-    }
-  });
-}
-
-function setShareLink() {
-  const url = window.location.href;
-  const text = encodeURIComponent(`🐑 *Seasonal Premium Sheep Stall* – Premium Qurbani Animals in Bangalore!\n\n11 breeds: Bannur, Boer, Jamunapari, Beetal, Amingad & more!\n📍 HBR Layout, Nagawara, Bangalore\n📞 +91 81051 22693\n\n🔗 ${url}\n\nEid al-Adha Mubarak! 🌙`);
-  const shareBtn = document.getElementById('shareWaBtn');
-  if (shareBtn) shareBtn.href = `https://wa.me/?text=${text}`;
-}
-
-/* ── LOAD FIREBASE DATA ── */
-async function loadFirebaseData() {
-  try {
-    // Dynamically load Firebase SDK
-    await new Promise((resolve, reject) => {
-      if (typeof firebase !== 'undefined') {
-        resolve();
-        return;
-      }
-      const script = document.createElement('script');
-      script.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js';
-      script.onload = () => {
-        const fsScript = document.createElement('script');
-        fsScript.src = 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js';
-        fsScript.onload = resolve;
-        fsScript.onerror = reject;
-        document.head.appendChild(fsScript);
-      };
-      script.onerror = reject;
-      document.head.appendChild(script);
-    });
-    
-    if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-    }
-    
-    const db = firebase.firestore();
-    const querySnapshot = await db.collection("listings").get();
-    
-    if (!querySnapshot.empty) {
-      const firebaseAnimals = [];
-      querySnapshot.forEach(doc => {
-        const data = doc.data();
-        firebaseAnimals.push({
-          name: data.breed || data.name,
-          type: data.type || "Sheep",
-          emoji: data.type === "Goat" ? "🐐" : "🐑",
-          quote: data.description ? `"${data.description.substring(0, 100)}..."` : "Visit our stall for this premium animal!",
-          weightMin: parseInt(data.weight) || 20,
-          weightMax: parseInt(data.weight) + 10 || 40,
-          weightLabel: data.weight || "20-40 kg",
-          age: data.age || "1-2 Years",
-          origin: data.origin || "Premium Breed",
-          vaccinated: true,
-          priceMin: data.price || 15000,
-          priceLabel: `₹${(data.price || 15000).toLocaleString()}`,
-          priceNote: "By live weight",
-          status: data.availability === "Limited" ? "limited" : "avail",
-          statusLabel: data.availability === "Limited" ? "⚡ Limited" : "✓ Available",
-          badge: data.availability === "Limited" ? "⚡ Limited Stock" : (data.featured ? "⭐ Featured" : "✓ Available"),
-          desc: data.description || "Premium Qurbani animal, healthy and vaccinated."
-        });
-      });
-      
-      if (firebaseAnimals.length > 0) {
-        currentAnimals = firebaseAnimals;
-        console.log(`✅ Loaded ${currentAnimals.length} animals from Firestore!`);
-      }
-    }
-  } catch (error) {
-    console.log("⚠️ Firebase error, using fallback data:", error.message);
-  }
-  
-  // Render with final data
-  renderAnimals();
-  buildBreedPills();
-  setShareLink();
-}
-
-/* ── PWA / UI INIT ── */
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const splash = document.getElementById('splash');
-    if (splash) splash.classList.add('hidden');
-  }, 1600);
-  
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => document.getElementById('splash')?.classList.add('hidden'), 1600);
   loadFirebaseData();
 });
 
-// Service Worker Registration
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW error:', err));
-  });
-}
+// PWA Service Worker
+if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(e => console.log('SW error:', e)));
 
 // Offline detection
 const offlineBar = document.getElementById('offlineBar');
-function updateOnlineStatus() {
-  if (offlineBar) {
-    if (!navigator.onLine) offlineBar.classList.add('show');
-    else offlineBar.classList.remove('show');
-  }
-}
-window.addEventListener('online', updateOnlineStatus);
-window.addEventListener('offline', updateOnlineStatus);
-updateOnlineStatus();
+window.addEventListener('online', () => { if(offlineBar) offlineBar.classList.remove('show'); });
+window.addEventListener('offline', () => { if(offlineBar) offlineBar.classList.add('show'); });
 
 // Install prompt
 let deferredPrompt = null;
-const installBanner = document.getElementById('installBanner');
-const installBtn = document.getElementById('installBtn');
-const dismissBtn = document.getElementById('dismissBtn');
-
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  const dismissed = localStorage.getItem('installDismissed');
-  if (!dismissed && installBanner) {
-    setTimeout(() => { installBanner.classList.add('show'); }, 4000);
-  }
-});
-
-if (installBtn) {
-  installBtn.addEventListener('click', async () => {
-    if (installBanner) installBanner.classList.remove('show');
-    if (deferredPrompt) {
-      deferredPrompt.prompt();
-      await deferredPrompt.userChoice;
-      deferredPrompt = null;
-    } else {
-      alert('📱 On iPhone: tap Share → Add to Home Screen');
-    }
-  });
-}
-
-if (dismissBtn) {
-  dismissBtn.addEventListener('click', () => {
-    if (installBanner) installBanner.classList.remove('show');
-    localStorage.setItem('installDismissed', '1');
-  });
-}
-
-// Bottom nav active state
-document.querySelectorAll('.pwa-tab').forEach(tab => {
-  tab.addEventListener('click', function() {
-    document.querySelectorAll('.pwa-tab').forEach(t => t.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
-
-// iOS install hint
-const isIos = /iphone|ipad|ipod/.test(window.navigator.userAgent.toLowerCase());
-const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-if (isIos && !isStandalone && !localStorage.getItem('iosHintShown')) {
-  setTimeout(() => {
-    alert('📱 Tap Share → Add to Home Screen to install this app!');
-    localStorage.setItem('iosHintShown', '1');
-  }, 10000);
-}
+window.addEventListener('beforeinstallprompt', e => { e.preventDefault(); deferredPrompt = e; if(!localStorage.getItem('installDismissed')) setTimeout(() => document.getElementById('installBanner')?.classList.add('show'), 4000); });
+document.getElementById('installBtn')?.addEventListener('click', async () => { document.getElementById('installBanner')?.classList.remove('show'); if(deferredPrompt) { deferredPrompt.prompt(); await deferredPrompt.userChoice; deferredPrompt = null; } else alert('📱 On iPhone: tap Share → Add to Home Screen'); });
+document.getElementById('dismissBtn')?.addEventListener('click', () => { document.getElementById('installBanner')?.classList.remove('show'); localStorage.setItem('installDismissed', '1'); });
 </script>
 </body>
 </html>
